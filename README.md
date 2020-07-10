@@ -6,6 +6,8 @@
 
 2. cd into 'voter-pass'
 
-3. run 'npm start' or 'yarn start'
+3. run 'npm install'
 
-4. project should open at http://localhost:3000
+4. run 'npm start' or 'yarn start'
+
+5. project should open at http://localhost:3000
