@@ -2,12 +2,16 @@
 
 # startup
 
-1. clone repo
+1. git init
 
-2. cd into 'voter-pass'
+2. clone -b luis-homepage https://github.com/CEN-Team-Four/VoterPass
 
-3. run 'npm install'
+3. cd VoterPass
 
-4. run 'npm start' or 'yarn start'
+4. cd voter-pass
 
-5. project should open at http://localhost:3000
+5. npm i
+
+6. npm start
+
+7. project should open at http://localhost:8000
