@@ -56,12 +56,14 @@ class Timer extends Component{
             <div className = 'list'>
               <table className = "time-table">
                 <List items = {this.state.listOfTimes}></List>
-              </table>                 
-                <button onClick={this.clearList}>Clear List</button>
+              </table>              
             </div>
-
-            
-
+           
+            <div className = 'average'>
+                <div>Average Time per Voter</div>                
+                <Average items = {this.state.listOfTimes}>
+                </Average>
+            </div>
 
             <div className="Stopwatch-display">
                 {minutes} : {seconds} 
@@ -80,11 +82,7 @@ class Timer extends Component{
             )}
             {this.state.timerOn === false && this.state.timerTime > 0 && (
                 <button onClick={this.storeTime}>Submit</button>
-             )}<div className = 'average'>
-                <div>Average Time per Voter</div>                
-                <Average items = {this.state.listOfTimes}>
-                </Average>
-            </div>
+             )}            
             </div>
           
         );

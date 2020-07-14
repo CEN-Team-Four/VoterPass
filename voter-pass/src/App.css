@@ -77,9 +77,10 @@ body {
   border: 2px solid seashell;
   right: 2px;
   top: 200px;
-  width: 500px;
-  max-height: 200px;
-  height: 200px;
+  width: 300px;
+  height: 500px;
+  overflow: scroll;
+  scroll-behavior: smooth;
 }
 
 .average{
