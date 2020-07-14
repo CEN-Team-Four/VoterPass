@@ -82,6 +82,9 @@ class Timer extends Component{
             )}
             {this.state.timerOn === false && this.state.timerTime > 0 && (
                 <button onClick={this.storeTime}>Submit</button>
+             )} <br></br>
+             {this.state.listOfTimes.length > 0 && (
+                <button onClick={this.clearList}>Clear List</button>
              )}            
             </div>
           
