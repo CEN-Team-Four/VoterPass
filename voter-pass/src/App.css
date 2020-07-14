@@ -44,7 +44,38 @@ body {
   font-size: calc(10px + 2vmin);
   color: black;
 } 
-
+.Timers{
+  position: fixed;
+  border: 2px solid seashell;
+  align-content: center;
+  width: 500px;
+  height: 200px;
+  padding-top: 10px;
+  left: 2px;
+  top: 200px; 
+}
+ .Countdown-header{
+  text-align: center; 
+}
+.Stopwatch{
+  text-align: center;
+}
+.Stopwatch-display{
+  text-align: center;
+} 
 .App-link {
   color: #61dafb;
+}
+.tableWrapper {
+	max-height: 500px;
+	overflow: auto;
+	scroll-behavior: smooth;
+}
+
+.list{
+  position: fixed;
+  border: 2px solid seashell;
+  right: 2px;
+  top: 200px;
+  width: 500px;
 }
