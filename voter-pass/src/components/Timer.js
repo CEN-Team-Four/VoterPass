@@ -1,5 +1,6 @@
 import React,{Component} from "react";
-
+import List from './List'
+import Average from './Average'
 
 class Timer extends Component{ 
 
@@ -36,28 +37,20 @@ class Timer extends Component{
       };
 
       storeTime = () => {
-        let temp = this.state.listOfTimes;
-        if(temp.length === 0){
-          temp += this.state.timerTime;
-          this.setState({listOfTimes:temp});
-        }
-        else{
-          temp += ', ' +this.state.timerTime;
-        this.setState({listOfTimes:temp});
-        }       
+          const list = [...this.state.listOfTimes, this.state.timerTime]
+          this.setState({listOfTimes:list})
       };
 
       clearList = () => {
         let temp = [];
-        this.setState({listOfTimes:temp});               
-      };
-
+        this.setState({listOfTimes:temp});          
+      };      
 
       render() {
         const { timerTime } = this.state;
         let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
         let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
-        let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
+        let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);       
         return (
           <div className="Stopwatch">
             <div className="Countdown-header">Timer</div>
@@ -82,12 +75,18 @@ class Timer extends Component{
 
            
               <div className = 'list'>
-                {this.state.listOfTimes}
+                <List items = {this.state.listOfTimes}></List>
                 <br></br>
-                  <button onClick={this.clearList}>Clear List</button>
-                
+                <button onClick={this.clearList}>Clear List</button>
               </div>
 
+
+              <div className = 'average'>
+                <div>Average Time per Voter</div>
+                <Average items = {this.state.listOfTimes} >
+
+                </Average>
+              </div>
 
           </div>
           

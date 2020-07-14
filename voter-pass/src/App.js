@@ -6,7 +6,6 @@ import Timer from './components/Timer';
 class App extends React.Component {
 
   render() {
-    const text = "https://dev.to";
     return (
       <div className="VoterPass">
         <header className="App-header">
