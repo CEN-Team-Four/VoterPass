@@ -12,17 +12,15 @@ function Average(props){
     if(average > 0){
         seconds = ("0" + (Math.floor(average / 1000) % 60)).slice(-2);
         minutes = ("0" + (Math.floor(average / 60000) % 60)).slice(-2);
-        hours = ("0" + Math.floor(average / 3600000)).slice(-2);
     }
     else{
         seconds = '00'
         minutes = seconds
-        hours = minutes
 
     }
     return(
         <div>
-        {hours} : {minutes} : {seconds} 
+        {minutes} : {seconds} 
         </div>
     );
 }

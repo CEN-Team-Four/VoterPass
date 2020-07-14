@@ -49,13 +49,22 @@ class Timer extends Component{
       render() {
         const { timerTime } = this.state;
         let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
-        let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
-        let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);       
+        let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);     
         return (
-          <div className="Stopwatch">
-            <div className="Countdown-header">Timer</div>
+          <div className="Stopwatch">Timer
+
+            <div className = 'list'>
+              <table className = "time-table">
+                <List items = {this.state.listOfTimes}></List>
+              </table>                 
+                <button onClick={this.clearList}>Clear List</button>
+            </div>
+
+            
+
+
             <div className="Stopwatch-display">
-                {hours} : {minutes} : {seconds} 
+                {minutes} : {seconds} 
             </div>
             {this.state.timerOn === false && this.state.timerTime === 0 && (
                 <button onClick={this.startTimer}>Start</button>
@@ -71,24 +80,12 @@ class Timer extends Component{
             )}
             {this.state.timerOn === false && this.state.timerTime > 0 && (
                 <button onClick={this.storeTime}>Submit</button>
-             )}
-
-           
-              <div className = 'list'>
-                <List items = {this.state.listOfTimes}></List>
-                <br></br>
-                <button onClick={this.clearList}>Clear List</button>
-              </div>
-
-
-              <div className = 'average'>
-                <div>Average Time per Voter</div>
-                <Average items = {this.state.listOfTimes} >
-
+             )}<div className = 'average'>
+                <div>Average Time per Voter</div>                
+                <Average items = {this.state.listOfTimes}>
                 </Average>
-              </div>
-
-          </div>
+            </div>
+            </div>
           
         );
       }

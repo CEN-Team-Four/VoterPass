@@ -66,8 +66,8 @@ body {
 .App-link {
   color: #61dafb;
 }
-.tableWrapper {
-	max-height: 500px;
+.time-table {
+	max-height: 300px;
 	overflow: auto;
 	scroll-behavior: smooth;
 }
@@ -78,6 +78,8 @@ body {
   right: 2px;
   top: 200px;
   width: 500px;
+  max-height: 200px;
+  height: 200px;
 }
 
 .average{
