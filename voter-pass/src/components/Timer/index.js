@@ -1,4 +1,6 @@
-import React,{Component} from "react";
+import React, {Component} from "react";
+
+import './index.css';
 import List from '../List'
 import Average from '../Average'
 
@@ -51,10 +53,10 @@ class Timer extends Component{
         let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
         let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);     
         return (
-          <div className="Stopwatch">Timer
+          <div className="Timer">Timer
 
             <div className = 'list'>
-              <table className = "time-table">
+              <table className = "time-list">
                 <List items = {this.state.listOfTimes}></List>
               </table>              
             </div>
@@ -65,7 +67,7 @@ class Timer extends Component{
                 </Average>
             </div>
 
-            <div className="Stopwatch-display">
+            <div className="stopwatch-display">
                 {minutes} : {seconds} 
             </div>
             {this.state.timerOn === false && this.state.timerTime === 0 && (

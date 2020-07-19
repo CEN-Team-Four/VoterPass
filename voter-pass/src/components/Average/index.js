@@ -1,5 +1,7 @@
 import React from "react";
 
+import './index.css';
+
 function Average(props){
     const items = props.items;
     let total = 0;
