@@ -1,6 +1,6 @@
 import React,{Component} from "react";
-import List from './List'
-import Average from './Average'
+import List from '../List'
+import Average from '../Average'
 
 class Timer extends Component{ 
 
