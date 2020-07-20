@@ -1,4 +1,8 @@
-.navigation-bar {   
+.navbar {
+  width: 100vw;
+}
+
+/*.navigation-bar {   
     position: fixed;
     background-color: black;   
     width: 100%;
@@ -8,4 +12,4 @@
     color: white; 
     top: 0;
     left: 0;
-  }
+}*/

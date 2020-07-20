@@ -13,9 +13,8 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <Navigation />
-        </div>
+        <Navigation />
+        
 
         <div>
           <Switch>
