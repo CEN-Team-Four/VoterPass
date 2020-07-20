@@ -34,6 +34,10 @@ body {
   color: white;
 } 
 
+.page-display {
+  height: 85vh;
+}
+
 .logo{
   color: white;
 }

@@ -21,8 +21,10 @@ function Average(props){
 
     }
     return(
-        <div>
-        {minutes} : {seconds} 
+        <div className="average-display">
+            Average Time per Voter
+            <br></br>
+            {minutes} : {seconds} 
         </div>
     );
 }

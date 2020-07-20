@@ -16,7 +16,7 @@ class App extends React.Component {
         <Navigation />
         
 
-        <div>
+        <div className="page-display">
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/timer" component={Timer}/>
