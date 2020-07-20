@@ -1,5 +1,7 @@
 import React from "react";
 
+import './index.css';
+
 function Average(props){
     const items = props.items;
     let total = 0;
@@ -19,8 +21,10 @@ function Average(props){
 
     }
     return(
-        <div>
-        {minutes} : {seconds} 
+        <div className="average-display">
+            Average Time per Voter
+            <br></br>
+            {minutes} : {seconds} 
         </div>
     );
 }
