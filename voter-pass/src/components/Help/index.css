@@ -1,0 +1,26 @@
+.help-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    height: 100%;
+    align-content: center;
+    text-align: center;
+}
+
+.help-navigation-links {
+    width: 25%;
+}
+
+.help-feed {
+    width: 70%;
+    height: 100%;
+    text-align: justify;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    padding-left: 10%;
+    padding-right: 10%;
+
+}
