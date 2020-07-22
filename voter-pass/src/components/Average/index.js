@@ -11,8 +11,11 @@ function Average(props){
             total += items[i];
         }
     }
-    let average = total/items.length;
-    
+
+    let average = 0;
+    if(items.length>0){
+        average = total/items.length;
+    }    
     let seconds, minutes
     if(average > 0){
         seconds = ("0" + (Math.floor(average / 1000) % 60)).slice(-2);
@@ -23,6 +26,7 @@ function Average(props){
         minutes = seconds
 
     }
+    localStorage.setItem('average', Math.round(average))
     return(
         <div className="average-display">
             Average Time per Voter

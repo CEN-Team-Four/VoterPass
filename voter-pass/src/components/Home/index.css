@@ -1,0 +1,11 @@
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #dee2e6;
+    margin: 20px 25% 25%;
+
+    width: 50%;
+}

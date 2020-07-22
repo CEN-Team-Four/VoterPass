@@ -7,6 +7,8 @@ import Home from './components/Home/';
 import Timer from './components/Timer/';
 import Help from './components/Help/';
 import Error from './components/Error/';
+import NewTable from './components/NewTable'
+import ScanQR from './components/ScanQR'
 
 class App extends React.Component {
 
@@ -21,6 +23,8 @@ class App extends React.Component {
             <Route exact path="/" component={Home}/>
             <Route exact path="/timer" component={Timer}/>
             <Route exact path="/help" component={Help}/>
+            <Route exact path="/new-time-table" component={NewTable}/>
+            <Route exact path="/scan-code" component={ScanQR}/>
 
             <Route component={Error}/>
           </Switch>
