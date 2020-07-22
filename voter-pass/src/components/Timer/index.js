@@ -41,13 +41,16 @@ class Timer extends Component {
   };
 
   storeTime = () => {
-    const list = [...this.state.listOfTimes, this.state.timerTime]
-    this.setState({ listOfTimes: list })
+    let temp = this.state.listOfTimes;
+    temp.push(this.state.timerTime);
+    this.setState({listOfTimes:temp});
+    localStorage.setItem('listOfTimes', JSON.stringify(this.state.listOfTimes))
   };
 
   clearList = () => {
     let temp = [];
     this.setState({ listOfTimes: temp });
+    localStorage.removeItem('listOfTimes');
   };
 
   render() {
@@ -82,15 +85,15 @@ class Timer extends Component {
           </div>
 
           <div className="buttons-row-2">
-            {this.state.listOfTimes.length > 0 && (
+            {!(localStorage.getItem('listOfTimes') === null) && (
               <Button variant="dark" onClick={this.clearList}>Clear List</Button>
             )}
           </div>
         </div>
 
-        <Average items={this.state.listOfTimes} />
+        <Average />
 
-        <List items={this.state.listOfTimes} />
+        <List />
       </div>
     );
   }
