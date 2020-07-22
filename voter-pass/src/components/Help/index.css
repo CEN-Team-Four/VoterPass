@@ -22,5 +22,24 @@
     border-radius: 5px;
     padding-left: 10%;
     padding-right: 10%;
+}
 
+.light-link {
+    color: #1b1e21 !important;
+    background-color: #fdfdfe !important;
+    border: 1px solid rgba(0,0,0,.125) !important;
+}
+
+.light-link:hover {
+    background-color: #ececf6 !important;
+}
+
+.dark-link {
+    color: #1b1e21 !important;
+    background-color: #c6c8ca !important;
+    border: 1px solid rgba(0,0,0,.125) !important;
+}
+
+.dark-link:hover {
+    background-color: #b9bbbe !important;
 }
