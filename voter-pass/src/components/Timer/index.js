@@ -12,7 +12,7 @@ class Timer extends Component {
     timerOn: false,
     timerStart: 0,
     timerTime: 0,
-    listOfTimes: [],
+    listOfTimes: this.initializeList(),
   };
 
   startTimer = () => {
@@ -52,6 +52,16 @@ class Timer extends Component {
     this.setState({ listOfTimes: temp });
     localStorage.removeItem('listOfTimes');
   };
+
+  initializeList () {
+    if(!(localStorage.getItem('listOfTimes') === null)){
+      let items = JSON.parse(localStorage.getItem('listOfTimes'))
+      return items;
+    }
+    else{
+      return [];
+    }
+  }
 
   render() {
     const { timerTime } = this.state;
