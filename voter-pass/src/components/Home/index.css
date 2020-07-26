@@ -1,11 +1,14 @@
 .buttons {
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     padding-top: 10px;
     padding-bottom: 10px;
     border: 2px solid #dee2e6;
-    margin: 20px 25% 25%;
-
+    margin: 20px 25% 0%;
     width: 50%;
+}
+
+.time-table{
+    width: 25%;
+    border: 2px solid #dee2e6;
 }
