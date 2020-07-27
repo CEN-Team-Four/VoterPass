@@ -7,8 +7,11 @@ import Home from './components/Home/';
 import Timer from './components/Timer/';
 import Help from './components/Help/';
 import Error from './components/Error/';
-import NewTable from './components/NewTable'
-import ScanQR from './components/ScanQR'
+import NewTable from './components/NewTable';
+import ScanQR from './components/ScanQR';
+import AssignTimeslot from './components/AssignTimeslot';
+import NewQR from './components/NewQR';
+import PrintPage from './components/PrintPage';
 
 class App extends React.Component {
 
@@ -25,6 +28,9 @@ class App extends React.Component {
             <Route exact path="/help" component={Help}/>
             <Route exact path="/new-time-table" component={NewTable}/>
             <Route exact path="/scan-code" component={ScanQR}/>
+            <Route exact path="/assigntimeslot" component={AssignTimeslot}/>
+            <Route exact path="/generateqr" component={NewQR}/>
+            <Route exact path="/printpage" component={PrintPage}/>
 
             <Route component={Error}/>
           </Switch>

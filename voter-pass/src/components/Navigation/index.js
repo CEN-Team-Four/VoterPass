@@ -12,8 +12,10 @@ const Navigation = () => {
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                 <Nav>
                     <Nav.Link href="/">Timeslot Table</Nav.Link>
+                    <Nav.Link href="/assigntimeslot">Assign Timeslot</Nav.Link>
                     <Nav.Link href="/timer">Timer</Nav.Link>
                     <Nav.Link href="/help">Help and Instructions</Nav.Link>
+                    <Nav.Link href="/generateqr">Generate QR</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

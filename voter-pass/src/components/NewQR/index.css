@@ -1,0 +1,10 @@
+.qrPos {
+    align-content: center;
+    text-align: center;
+    border: 2px solid #dee2e6;
+    margin: 20px 200px 20px 200px;
+}
+
+.btn {
+    margin: 5px;
+}
