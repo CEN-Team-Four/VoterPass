@@ -4,7 +4,7 @@
 
 1. git init
 
-2. clone -b luis-homepage https://github.com/CEN-Team-Four/VoterPass
+2. clone -b sprint-2 https://github.com/CEN-Team-Four/VoterPass
 
 3. cd VoterPass
 
