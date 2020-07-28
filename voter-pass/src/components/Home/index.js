@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TimeTable from '../TimeTable'
-
 import Button from 'react-bootstrap/Button';
+
+import TimeTable from '../TimeTable'
+import AssignTimeslot from '../AssignTimeslot'
 
 import './index.css';
  
@@ -10,7 +11,6 @@ class Home extends React.Component {
     state = {
         timeslots: this.initializeTimeslots(),
         availability: this.initializeAvailability(),
-
     };
 
     initializeAvailability(){
@@ -35,9 +35,7 @@ class Home extends React.Component {
 
 render(){
     return (
-       <div classname = 'home-wrapper'>  
-
-
+       <div classname = 'home-wrapper'>
             <div className = 'buttons'>
                 <Link to="/new-time-table">
                     <Button variant="dark"> New Table </Button>
@@ -49,6 +47,10 @@ render(){
             <div className = 'time-table'>
                 <TimeTable timeslots = {this.state.timeslots} availability = {this.state.availability}></TimeTable>
             </div>
+            <div className = 'assign'>
+                <AssignTimeslot></AssignTimeslot>
+            </div> 
+           
            
        </div>
         
