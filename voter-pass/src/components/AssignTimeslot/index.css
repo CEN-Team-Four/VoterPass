@@ -1,11 +1,10 @@
 .assignT {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    align-items: center;
     border: 2px solid #dee2e6;
-    margin: 20px 25% 0%;
-    width: 50%;
+    height: 100%;
 }
 
 .drpdwn {
@@ -15,6 +14,4 @@
 .style-1 {
     display: flex;
     justify-content: space-evenly;
-    margin: 20px 25% 0%;
-    width: 50%;
 }

@@ -14,8 +14,6 @@ function TimeTable(props){
     });
 
     return(
-
-    
         <Table striped className="time-table table-striped table-bordered ">
             <thead>
                 <th className="Timeslots">Timeslots</th>

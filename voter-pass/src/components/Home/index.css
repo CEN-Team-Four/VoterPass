@@ -1,36 +1,38 @@
-.buttons {
-    display: flex;
-    justify-content: space-evenly;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: 2px solid #dee2e6;
-    margin: 20px 25% 0%;
-    width: 50%;
+.home-wrapper {
+    display: grid;
+    grid-template-columns: 40% auto;
+    grid-template-rows: 20% auto;
+    grid-template-areas:
+        "table buttons"
+        "table assign"; 
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.time-table{
-    width: 25%;
-    border: 2px solid #dee2e6;
-}
-
-.assignT {
+.buttons-container {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    align-items: center;
+    grid-area: buttons;
     border: 2px solid #dee2e6;
-    margin: 20px 25% 0%;
-    width: 50%;
+    width: 100%;
+}
+
+.time-table-container {
+    grid-area: table;
+    height: 100%;
+}
+
+.assign-container {
+    width: 100%;
+    grid-area: assign;
 }
 
 .drpdwn {
     width: 30%;
 }
 
-
 .style-1 {
     display: flex;
     justify-content: space-evenly;
-    margin: 20px 25% 0%;
-    width: 50%;
 }

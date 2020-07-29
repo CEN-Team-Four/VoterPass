@@ -35,8 +35,11 @@ class Home extends React.Component {
 
 render(){
     return (
-       <div classname = 'home-wrapper'>
-            <div className = 'buttons'>
+       <div className = 'home-wrapper'>
+            <div className = 'time-table-container'>
+                <TimeTable timeslots = {this.state.timeslots} availability = {this.state.availability}></TimeTable>
+            </div>
+            <div className = 'buttons-container'>
                 <Link to="/new-time-table">
                     <Button variant="dark"> New Table </Button>
                 </Link>
@@ -44,18 +47,10 @@ render(){
                     <Button variant="dark"> Scan QR Code </Button>
                 </Link>               
             </div>
-            <div className = 'time-table'>
-                <TimeTable timeslots = {this.state.timeslots} availability = {this.state.availability}></TimeTable>
-            </div>
-            <div className = 'assign'>
-                <AssignTimeslot></AssignTimeslot>
+            <div className = 'assig-container'>
+                <AssignTimeslot />
             </div> 
-           
-           
        </div>
-        
-       
-       
     );
 }
 }

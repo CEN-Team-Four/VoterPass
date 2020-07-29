@@ -17,7 +17,6 @@ class AssignTimeslot extends Component {
   render() {
     return (
       <div className="assignT">
-        <div>
           <h1>Assign Timeslot</h1>
           <div className="style-1">
               <h3>Time:</h3>
@@ -29,7 +28,6 @@ class AssignTimeslot extends Component {
               </Link>}
               <Button variant="danger">Cancel</Button>
           </div>
-        </div>
       </div>
     );
   }
