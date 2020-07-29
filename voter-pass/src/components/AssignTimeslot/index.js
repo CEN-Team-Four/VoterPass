@@ -26,7 +26,6 @@ class AssignTimeslot extends Component {
               {<Link to="/generateqr">
                   <Button variant="success"> Confirm </Button>
               </Link>}
-              <Button variant="danger">Cancel</Button>
           </div>
       </div>
     );

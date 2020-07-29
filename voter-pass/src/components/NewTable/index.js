@@ -137,9 +137,9 @@ class NewTable extends Component{
     else
       this.state.times.push(curHour + ':' + curMin + this.state.cur);
 
-    this.state.available.push(this.state.numBooths);
+    // this.state.available.push(this.state.numBooths);
     this.state.times.push()
-    for (let i = 0; i < numSlots - 1; i++) {
+    for (let i = 0; i < numSlots ; i++) {
       this.state.available.push(this.state.numBooths);
       curMin += parseInt(this.state.duration);
       if (curMin >= 60) {
@@ -176,7 +176,7 @@ class NewTable extends Component{
           <h1>Create New Table</h1>
           <form onSubmit={this.handleSubmit}>
           <div className="loc">
-          <label>Enter Location: </label>
+          <label>Enter Date: </label>
           <input
             type = 'text'
             value={this.state.Location}
@@ -207,7 +207,7 @@ class NewTable extends Component{
             onChange={event => this.setState({ duration: event.target.value })}
           />
 
-          <label>Number of booths: </label>
+          <label>Availability: </label>
           <input
             type = 'text'
             value={this.state.numBooths}

@@ -14,7 +14,7 @@ class Home extends React.Component {
     };
 
     initializeAvailability(){
-        if(!(localStorage.getItem('availablility') === null)){
+        if(!(localStorage.getItem('availability') === null)){
             let items = JSON.parse(localStorage.getItem('availability'))
             return items;
           }
