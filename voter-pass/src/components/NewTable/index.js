@@ -167,6 +167,7 @@ class NewTable extends Component{
 
     event.preventDefault();
   }
+  event.preventDefault();
  };
 
   render() {
