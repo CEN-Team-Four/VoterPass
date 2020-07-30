@@ -4,6 +4,7 @@
     justify-content: space-evenly;
     align-items: center;
     border: 2px solid #dee2e6;
+    border-left: 0;
     height: 100%;
 }
 
