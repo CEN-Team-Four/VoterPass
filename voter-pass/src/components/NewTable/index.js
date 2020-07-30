@@ -216,7 +216,7 @@ class NewTable extends Component{
           </div>
 
           <div className = "btns">
-          <button type="submit">submit</button>
+          <Button variant="success" type="submit">Submit</Button>
           <Button variant="dark" href="/">Go to Table</Button>
           </div>
           </form>
