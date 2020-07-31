@@ -187,13 +187,13 @@ class NewTable extends Component{
             onChange={event => this.setState({ numBooths: event.target.value })}
           />
 
-           <Button variant="success" type="submit" >Submit</Button>
-           <Button variant="dark" href="/">Go to Table</Button>
-          </div>
+          <Button variant="success" type="submit">Submit</Button>
+          <Button variant="danger" href="/">Cancel</Button>
 
-         
+          </div>
           </form>
           </div>
+          
       </div>
     );
 
