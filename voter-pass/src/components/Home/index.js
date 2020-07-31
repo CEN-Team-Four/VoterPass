@@ -21,7 +21,7 @@ class Home extends React.Component {
           else{
             return [5,5,5,5,5,5,5];
           }
-    } 
+    }
 
     initializeTimeslots(){
         if(!(localStorage.getItem('timeslots') === null)){
@@ -48,7 +48,7 @@ render(){
                 </Link>               
             </div>
             <div className = 'assig-container'>
-                <AssignTimeslot />
+                <AssignTimeslot  timeSlots= {this.state.timeslots} availability= {this.state.availability} handler={this.handler}/>
             </div> 
        </div>
     );

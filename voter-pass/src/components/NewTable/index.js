@@ -21,44 +21,16 @@ class NewTable extends Component{
     numBooths:'',
     duration:'',
     times: [],
-    //times: this.initializeTimeslots(),
     available: []
   };
 }
-/*
-  state = {
-     Location: '',
-     startTime: '',
-     startHour: '',
-     startMin: '',
-     endTime: '',
-     endHour: '',
-     endMin: '',
-     cur: '',
-     numBooths:'',
-     duration:'',
-     times: [],
-     //times: this.initializeTimeslots(),
-     available: []
-   };
-*/
-/*
-  initializeTimeslots () {
-    if(!(localStorage.getItem('timeslots') === null)){
-      let items = JSON.parse(localStorage.getItem('timeslots'))
-      return items;
-    }
-    else{
-      return [];
-    }
-  }
-*/
+
   handleChange = event => {
     this.setState({
       Location: event.target.value
   });
 };
-/*!this.state.Location || !this.state.startTime || !this.state.endTime || !this.state.duration || !this.state.numBooths*/
+
   validate = () => {
     if (!this.state.Location || !this.state.startTime || !this.state.endTime || !this.state.duration || !this.state.numBooths) {
       alert('Please fill out the entire form');

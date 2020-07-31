@@ -4,14 +4,18 @@ import { Link } from 'react-router-dom';
 
 import './index.css';
 import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-
 class AssignTimeslot extends Component {
-  state ={
-    options: ['9:30', '9:35', '9:40','9:45'],
-    defaultOption: '9:30',
+  state = {
+      selected: this.props.timeSlots[0]
+    };
+   
+
+  handleChange = (e) => {
+    this.setState({
+        selected: e.target.value
+    });
   }
 
   render() {
@@ -20,10 +24,21 @@ class AssignTimeslot extends Component {
           <h1>Assign Timeslot</h1>
           <div className="style-1">
               <h3>Time:</h3>
-              <Dropdown className="drpdwn" options={this.state.options} onChange={this._onSelect} value={this.state.defaultOption} placeholder="Select an option" />
+              <select onChange={this.handleChange}>
+                <option>{this.props.timeSlots[0]}</option>
+                <option>{this.props.timeSlots[1]}</option>
+                <option>{this.props.timeSlots[2]}</option>
+                <option>{this.props.timeSlots[3]}</option>
+                <option>{this.props.timeSlots[4]}</option>
+                <option>{this.props.timeSlots[5]}</option>
+              </select>
           </div>
           <div className="style-1">
-              {<Link to="/generateqr">
+              {<Link to={{pathname: '/generateqr',
+              state: {
+                timSlot: this.state.selected
+              }
+              }}>
                   <Button variant="success"> Confirm </Button>
               </Link>}
           </div>
