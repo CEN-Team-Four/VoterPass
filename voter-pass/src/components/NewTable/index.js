@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import TimeTable from '../TimeTable';
 import './index.css';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
 class NewTable extends Component{
@@ -104,14 +102,16 @@ class NewTable extends Component{
     let curHour = this.state.startHour;
     let curMin = this.state.startMin;
     console.log(this.state.numBooths);
+    if (curHour > 12)
+          curHour -= 12;
     if (curMin < 10)
       this.state.times.push(curHour + ':0' + curMin + this.state.cur);
     else
       this.state.times.push(curHour + ':' + curMin + this.state.cur);
 
-    // this.state.available.push(this.state.numBooths);
+    this.state.available.push(this.state.numBooths);
     this.state.times.push()
-    for (let i = 0; i < numSlots ; i++) {
+    for (let i = 0; i < numSlots - 1; i++) {
       this.state.available.push(this.state.numBooths);
       curMin += parseInt(this.state.duration);
       if (curMin >= 60) {
@@ -186,12 +186,12 @@ class NewTable extends Component{
             value={this.state.numBooths}
             onChange={event => this.setState({ numBooths: event.target.value })}
           />
+
+           <Button variant="success" type="submit" >Submit</Button>
+           <Button variant="dark" href="/">Go to Table</Button>
           </div>
 
-          <div className = "btns">
-          <Button variant="success" type="submit">Submit</Button>
-          <Button variant="dark" href="/">Go to Table</Button>
-          </div>
+         
           </form>
           </div>
       </div>

@@ -62,7 +62,7 @@ input {
   align-items: center;
 }
 
-.btns button{
+ /* .btns button{
     background-color: #388E3C;
     color: #fff;
     border: 2px solid #fff;
@@ -72,8 +72,8 @@ input {
     font-size: 1em;
     letter-spacing: 1px;
     margin-bottom: 0.25em;
-    margin: 20px 10% 0%;
-}
+    margin: 20px 10% 0%; 
+}  */
 .button {
   margin: 5px;
 }

@@ -19,7 +19,7 @@ class Home extends React.Component {
             return items;
           }
           else{
-            return [5,5,5,5,5,5,5];
+            return [];
           }
     }
 
@@ -29,7 +29,7 @@ class Home extends React.Component {
             return items;
           }
           else{
-            return [3,3,3,3,3,3,3];
+            return [];
           }
     } 
 
