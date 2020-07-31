@@ -10,7 +10,7 @@ import './index.css';
 class Home extends React.Component {
     state = {
         timeslots: this.initializeTimeslots(),
-        availability: this.initializeAvailability()
+        availability: this.initializeAvailability(),
     };
 
     initializeAvailability(){
