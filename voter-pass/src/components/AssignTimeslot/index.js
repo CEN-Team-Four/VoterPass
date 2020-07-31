@@ -18,6 +18,18 @@ class AssignTimeslot extends Component {
     });
   }
 
+  updateAvailability = () =>{
+    let items = [];
+    if(!(localStorage.getItem('timeslots') === null)){
+      items = JSON.parse(localStorage.getItem('timeslots'))
+      let a = items.indexOf(this.state.selected);
+      
+      let temp = JSON.parse(localStorage.getItem('availability'))
+      temp[a] -= 1;
+      localStorage.setItem('availability', JSON.stringify(temp))
+    }
+  }
+
   render() {
     return (
       <div className="assignT">
@@ -38,7 +50,7 @@ class AssignTimeslot extends Component {
                 timSlot: this.state.selected
               }
               }}>
-                  <Button variant="success"> Confirm </Button>
+                  <Button variant="success" onClick={this.updateAvailability}> Confirm </Button>
               </Link>}
           </div>
       </div>
