@@ -25,12 +25,11 @@ class AssignTimeslot extends Component {
           <div className="style-1">
               <h3>Time:&nbsp;</h3>
               <select onChange={this.handleChange}>
-                <option>{this.props.timeSlots[0]}</option>
-                <option>{this.props.timeSlots[1]}</option>
-                <option>{this.props.timeSlots[2]}</option>
-                <option>{this.props.timeSlots[3]}</option>
-                <option>{this.props.timeSlots[4]}</option>
-                <option>{this.props.timeSlots[5]}</option>
+                {this.props.timeSlots.map(item => {
+                  return(
+                    <option>{item}</option>
+                  );
+                })}
               </select>
           </div>
           <div className="style-1">

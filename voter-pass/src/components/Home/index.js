@@ -47,7 +47,7 @@ render(){
                     <Button variant="dark"> Scan QR Code </Button>
                 </Link>               
             </div>
-            <div className = 'assig-container'>
+            <div className = 'assign-container'>
                 <AssignTimeslot  timeSlots= {this.state.timeslots} availability= {this.state.availability} handler={this.handler}/>
             </div> 
        </div>
