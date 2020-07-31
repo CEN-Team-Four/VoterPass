@@ -39,7 +39,7 @@ class NewQR extends Component {
                    {this.state.curTime.getFullYear()} </h3>
                   <h3>Assigned Time: {this.state.timSlot}</h3>
                 <Button className="btn" variant="dark" href="/printpage">Print</Button>
-                <Button className="btn" variant="dark" href="/">Return to table</Button>
+                <Button className="btn" variant="dark" href="/">Return to Table</Button>
                 </div>
             </div>
         </div>
