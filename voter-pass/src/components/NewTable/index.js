@@ -48,13 +48,14 @@ class NewTable extends Component{
      this.setState({available:[]});
      localStorage.removeItem('timeslots');
      localStorage.removeItem('availability');
-
+     var curHour = 0;
      if(this.state.startTime.includes('PM'))
      {
        this.state.cur = 'PM';
        this.state.startTime.replace('PM','');
        let s = this.state.startTime.split(':',2);
        this.state.startHour = parseInt(s[0]);
+       curHour = this.state.startHour;
        if (this.state.startHour < 12)
           this.state.startHour += 12;
        this.state.startMin = parseInt(s[1]);
@@ -65,6 +66,7 @@ class NewTable extends Component{
        this.state.startTime.replace('AM','');
        let s = this.state.startTime.split(':',2);
        this.state.startHour = parseInt(s[0]);
+       curHour = this.state.startHour;
        if (this.state.startHour === 12)
           this.state.startHour -= 12;
        this.state.startMin = parseInt(s[1]);
@@ -98,12 +100,10 @@ class NewTable extends Component{
        hrs = hrs - 1;
    }
    let total = 60 * hrs + mins;
-   let numSlots = total/this.state.duration + 1;
-    let curHour = this.state.startHour;
+   let numSlots = total/this.state.duration + 1
     let curMin = this.state.startMin;
     console.log(this.state.numBooths);
-    if (curHour > 12)
-          curHour -= 12;
+
     if (curMin < 10)
       this.state.times.push(curHour + ':0' + curMin + this.state.cur);
     else
@@ -193,7 +193,7 @@ class NewTable extends Component{
           </div>
           </form>
           </div>
-          
+
       </div>
     );
 
