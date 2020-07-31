@@ -45,7 +45,7 @@ class NewTable extends Component{
   handleSubmit = (event) => {
 
    if (this.validate()) {
-     //let temp = [];
+     alert("A new table was created");
      this.setState({times:[]});
      this.setState({available:[]});
      localStorage.removeItem('timeslots');
