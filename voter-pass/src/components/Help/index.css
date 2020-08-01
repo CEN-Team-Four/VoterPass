@@ -1,0 +1,45 @@
+.help-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    height: 100%;
+    align-content: center;
+    text-align: center;
+}
+
+.help-navigation-links {
+    width: 25%;
+}
+
+.help-feed {
+    width: 70%;
+    height: 100%;
+    text-align: justify;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.light-link {
+    color: #1b1e21 !important;
+    background-color: #fdfdfe !important;
+    border: 1px solid rgba(0,0,0,.125) !important;
+}
+
+.light-link:hover {
+    background-color: #ececf6 !important;
+}
+
+.dark-link {
+    color: #1b1e21 !important;
+    background-color: #c6c8ca !important;
+    border: 1px solid rgba(0,0,0,.125) !important;
+}
+
+.dark-link:hover {
+    background-color: #b9bbbe !important;
+}

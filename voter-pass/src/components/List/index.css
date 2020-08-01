@@ -1,0 +1,31 @@
+.list {
+    border: 2px solid #dee2e6;
+    height: 95%;
+    margin-top: 20px;
+
+    grid-area: time-list;
+
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.time-list {
+    max-height: 300px;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+.time-list-heading {
+    border-top: 0;
+}
+
+/*#list {
+    position: fixed;
+    border: 2px solid #dee2e6;
+    right: 2px;
+    top: 12%;
+    width: 39.8%;
+    height: 80%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}*/

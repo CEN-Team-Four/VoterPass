@@ -1,21 +1,39 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import './App.css';
-import './components/Timer';
-import Timer from './components/Timer';
+import Navigation from './components/Navigation/';
+import Home from './components/Home/';
+import Timer from './components/Timer/';
+import Help from './components/Help/';
+import Error from './components/Error/';
+import NewTable from './components/NewTable';
+import ScanQR from './components/ScanQR';
+import NewQR from './components/NewQR';
+import PrintPage from './components/PrintPage';
 
 class App extends React.Component {
 
   render() {
     return (
-      <div className="VoterPass">
-        <header className="App-header">
-          <h2>Voter Pass App </h2>     
-        </header>
+      <BrowserRouter>
+        <Navigation />
         
-        <div className="Timers">
-          <Timer/>
+
+        <div className="page-display">
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/timer" component={Timer}/>
+            <Route exact path="/help" component={Help}/>
+            <Route exact path="/new-time-table" component={NewTable}/>
+            <Route exact path="/scan-code" component={ScanQR}/>
+            <Route exact path="/generateqr" component={NewQR}/>
+            <Route exact path="/printpage" component={PrintPage}/>
+
+            <Route component={Error}/>
+          </Switch>
         </div>
-      </div>     
+      </BrowserRouter>    
 
     );
   }

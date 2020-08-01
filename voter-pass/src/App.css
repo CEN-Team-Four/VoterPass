@@ -24,18 +24,6 @@
   text-align: center;
 }
 
-.App-header {   
-  position: fixed;
-  background-color: black;   
-  width: 100%;
-  height: 12%;
-  text-align: center;
-  font-size: calc(10px + 2vmin);
-  color: white; 
-  top: 0;
-  left: 0;
-}
-
 body {
   background-color: #313131;
   display: flex;
@@ -46,55 +34,11 @@ body {
   color: white;
 } 
 
-.Timers{
-  position: fixed;
-  border: 2px solid seashell;
-  align-content: center;
-  width: 60%;
-  height: 50%;
-  padding-top: 10px;
-  left: 2px;
-  top: 12%;
-  color: white; 
-}
- .Countdown-header{
-  text-align: center; 
-}
-.Stopwatch{
-  text-align: center;
-}
-.Stopwatch-display{
-  text-align: center;
-}
-
-.time-table {
-	max-height: 300px;
-	overflow: auto;
-	scroll-behavior: smooth;
+.page-display {
+  height: 85vh;
+  padding-top: 20px;
 }
 
 .logo{
   color: white;
-}
-
-.list{
-  position: fixed;
-  border: 2px solid seashell;
-  right: 2px;
-  top: 12%;
-  width: 39.8%;
-  height: 80%;
-  overflow: scroll;
-  scroll-behavior: smooth;
-}
-
-.average{
-  position: fixed;
-  border: 2px solid seashell;
-  right: 2px;
-  width: 60%;
-  top: 62%;
-  left: 2px;
-  height: 28%;
-  text-align: center;
 }
