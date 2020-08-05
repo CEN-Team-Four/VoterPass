@@ -59,7 +59,7 @@ class NewTable extends Component{
   }
 
   validate = () => {
-    if (!this.state.Location || !this.state.startTime || !this.state.endTime || !this.state.duration || !this.state.numBooths) {
+    if (!this.state.startTime || !this.state.endTime || !this.state.duration || !this.state.numBooths) {
       alert('Please fill out the entire form');
       return false;
     }
