@@ -14,23 +14,51 @@ class Home extends React.Component {
     };
 
     initializeAvailability(){
-        if(!(localStorage.getItem('availability') === null)){
-            let items = JSON.parse(localStorage.getItem('availability'))
-            return items;
-          }
-          else{
+        let test = 'test', myBool;
+        try {
+            localStorage.setItem(test, test);
+            localStorage.removeItem(test);
+            myBool = true;
+        } catch(e) {
+            myBool = false;
+        }
+        if(myBool === false){
+            alert('Please enable cookies.')
             return [];
-          }
+        }
+        else{
+            if(!(localStorage.getItem('availability') === null)){
+                let items = JSON.parse(localStorage.getItem('availability'))
+                return items;
+            }
+            else{
+                return [];
+            }
+        }
     }
 
     initializeTimeslots(){
-        if(!(localStorage.getItem('timeslots') === null)){
-            let items = JSON.parse(localStorage.getItem('timeslots'))
-            return items;
-          }
-          else{
+        let test = 'test', myBool;
+        try {
+            localStorage.setItem(test, test);
+            localStorage.removeItem(test);
+            myBool = true;
+        } catch(e) {
+            myBool = false;
+        }
+        if(myBool === false){
+            alert('Please enable cookies.')
             return [];
-          }
+        }
+        else{
+            if(!(localStorage.getItem('timeslots') === null)){
+                let items = JSON.parse(localStorage.getItem('timeslots'))
+                return items;
+            }
+            else{
+                return [];
+            }
+        }
     } 
 
 render(){
