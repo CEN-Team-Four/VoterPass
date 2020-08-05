@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import './index.css';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
-import Average from "../Average";
 
 class NewTable extends Component{
   constructor(props) {
