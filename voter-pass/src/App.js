@@ -10,7 +10,6 @@ import Error from './components/Error/';
 import NewTable from './components/NewTable';
 import ScanQR from './components/ScanQR';
 import NewQR from './components/NewQR';
-import PrintPage from './components/PrintPage';
 
 class App extends React.Component {
 
@@ -28,7 +27,6 @@ class App extends React.Component {
             <Route exact path="/new-time-table" component={NewTable}/>
             <Route exact path="/scan-code" component={ScanQR}/>
             <Route exact path="/generateqr" component={NewQR}/>
-            <Route exact path="/printpage" component={PrintPage}/>
 
             <Route component={Error}/>
           </Switch>

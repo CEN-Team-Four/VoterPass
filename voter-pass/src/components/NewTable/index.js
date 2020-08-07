@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import './index.css';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 
 class NewTable extends Component{
   constructor(props) {
@@ -19,7 +18,8 @@ class NewTable extends Component{
     numBooths:'',
     duration:'',
     times: [],
-    available: []
+    available: [],
+    average: this.initializeAve(),
   };
 }
 
@@ -29,8 +29,35 @@ class NewTable extends Component{
   });
 };
 
+  initializeAve = () =>{
+    let test = 'test', myBool;
+    try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        myBool = true;
+    } catch(e) {
+        myBool = false;
+    }
+    if(myBool === false){
+        alert('Please enable cookies.')
+        return 'N/A';
+    }
+    else{
+        if(!(localStorage.getItem('average') === null)){
+            let items = JSON.parse(localStorage.getItem('average'))
+            let seconds = ("0" + (Math.floor(items / 1000) % 60)).slice(-2);
+            let minutes = ("0" + (Math.floor(items / 60000) % 60)).slice(-2);
+            let str = minutes + ':' + seconds
+            return str;
+        }
+        else{
+            return 'N/A';
+        }
+    }
+  }
+
   validate = () => {
-    if (!this.state.Location || !this.state.startTime || !this.state.endTime || !this.state.duration || !this.state.numBooths) {
+    if (!this.state.startTime || !this.state.endTime || !this.state.duration || !this.state.numBooths) {
       alert('Please fill out the entire form');
       return false;
     }
@@ -148,41 +175,45 @@ class NewTable extends Component{
         <div className="form-wrapper">
           <h1>Create New Table</h1>
           <form onSubmit={this.handleSubmit}>
-          <div className="loc">
+          {/* <div className="loc">
           <label>Enter Date: </label>
           <input
             type = 'text'
             value={this.state.Location}
             onChange={event => this.setState({ Location: event.target.value })}
           />
-          </div>
+          </div> */}
+
+          <br></br>
           <div className="textbox">
           <label htmlFor="start">Start Time: </label>
           <input
-            type = 'text'
-            placeholder = 'eg. 8:00AM'
+            type = 'time'
             value={this.state.startTime}
             onChange={event => this.setState({ startTime: event.target.value })}
           />
 
+          <br></br>
           <label htmlFor="end">End Time: </label>
           <input
-            type = 'text'
+            type = 'time'
             value={this.state.endTime}
             onChange={event => this.setState({ endTime: event.target.value })}
           />
 
+          <br></br>
           <label>Duration per timeslot: </label>
           <input
-            type = 'text'
-            placeholder = 'Minutes'
+            type = 'number'
+            min = '0' 
             value={this.state.duration}
             onChange={event => this.setState({ duration: event.target.value })}
-          />
+          /> <p>average: {this.state.average}</p>
 
           <label>Availability: </label>
           <input
-            type = 'text'
+            type = 'number'
+            min = '0'
             value={this.state.numBooths}
             onChange={event => this.setState({ numBooths: event.target.value })}
           />

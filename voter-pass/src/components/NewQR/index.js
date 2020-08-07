@@ -16,21 +16,23 @@ class NewQR extends Component {
     return (
         <div>
             <div className='qrPos'>
-                <h1>Your QR Ticket</h1>
+                <h1>inLine Ticket</h1>
                 <QRCode value={"Date: " + 
                       (this.state.curTime.getMonth() + 1) + "/" + 
                       this.state.curTime.getDate() + "/" +
                       this.state.curTime.getFullYear() + '\n' +
                       "Time: " + 
-                  this.state.timSlot}/>
+                  this.state.timSlot}></QRCode>
                 <div>
                   <h3>Date: {this.state.curTime.getMonth() + 1}/
                    {this.state.curTime.getDate()}/
                    {this.state.curTime.getFullYear()} </h3>
-                  <h3>Assigned Time: {this.state.timSlot}</h3>
-                <Button className="btn" variant="dark" href="/printpage">Print</Button>
-                <Button className="btn" variant="dark" href="/">Return to table</Button>
+                  <h3>Assigned Time: {this.state.timSlot}</h3>                
                 </div>
+            </div>
+            <div className = 'buttons'>
+              <Button className="btn" variant="dark" onClick={window.print}>Print</Button>
+              <Button className="btn" variant="dark" href="/">Return to table</Button>
             </div>
         </div>
     );
