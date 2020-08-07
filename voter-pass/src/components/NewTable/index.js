@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {Redirect} from 'react-router-dom';
+
 import './index.css';
 import Button from 'react-bootstrap/Button';
 
@@ -20,6 +22,7 @@ class NewTable extends Component{
     times: [],
     available: [],
     average: this.initializeAve(),
+    submitted: false
   };
 }
 
@@ -164,9 +167,10 @@ class NewTable extends Component{
     console.log(this.state.times);
     console.log(this.state.available);
 
+    this.setState({submitted: true});
     event.preventDefault();
   }
-  event.preventDefault();
+  event.preventDefault();  
  };
 
   render() {
@@ -220,6 +224,9 @@ class NewTable extends Component{
 
           <Button variant="success" type="submit">Submit</Button>
           <Button variant="dark" href="/">Return to Table</Button>
+          {this.state.submitted === true &&  (
+              <Redirect to="/" />
+          )}
 
           </div>
           </form>
