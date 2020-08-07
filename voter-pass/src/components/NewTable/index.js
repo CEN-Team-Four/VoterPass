@@ -206,7 +206,7 @@ class NewTable extends Component{
           />
 
           <br></br>
-          <label>Duration per timeslot: </label>
+          <label>Duration per Timeslot: </label>
           <input
             type = 'number'
             min = '0' 
@@ -214,7 +214,7 @@ class NewTable extends Component{
             onChange={event => this.setState({ duration: event.target.value })}
           /> <p>average: {this.state.average}</p>
 
-          <label>Availability: </label>
+          <label>Availability per Timeslot: </label>
           <input
             type = 'number'
             min = '0'
