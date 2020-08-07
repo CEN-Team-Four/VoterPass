@@ -5,7 +5,7 @@ import './index.css';
 const Error = () => {
     return (
        <div>
-          <p>Error: Page does not exist!</p>
+          <p className="error">404 - Not Found</p>
        </div>
     );
 }

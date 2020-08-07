@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
 import Navigation from './components/Navigation/';
@@ -28,7 +28,11 @@ class App extends React.Component {
             <Route exact path="/scan-code" component={ScanQR}/>
             <Route exact path="/generateqr" component={NewQR}/>
 
-            <Route component={Error}/>
+            <Route component={Home}>
+              <Redirect to="" />
+            </Route>
+
+            <Route component={Error} />
           </Switch>
         </div>
       </BrowserRouter>    
