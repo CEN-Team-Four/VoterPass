@@ -219,7 +219,7 @@ class NewTable extends Component{
           />
 
           <Button variant="success" type="submit">Submit</Button>
-          <Button variant="danger" href="/">Cancel</Button>
+          <Button variant="dark" href="/">Return to Table</Button>
 
           </div>
           </form>
