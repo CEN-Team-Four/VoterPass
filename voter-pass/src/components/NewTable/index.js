@@ -78,48 +78,14 @@ class NewTable extends Component{
      this.setState({available:[]});
      localStorage.removeItem('timeslots');
      localStorage.removeItem('availability');
-     var curHour = 0;
-     if(this.state.startTime.includes('PM'))
-     {
-       this.state.cur = 'PM';
-       this.state.startTime.replace('PM','');
-       let s = this.state.startTime.split(':',2);
-       this.state.startHour = parseInt(s[0]);
-       curHour = this.state.startHour;
-       if (this.state.startHour < 12)
-          this.state.startHour += 12;
-       this.state.startMin = parseInt(s[1]);
-     }
-     else
-     {
-       this.state.cur = 'AM';
-       this.state.startTime.replace('AM','');
-       let s = this.state.startTime.split(':',2);
-       this.state.startHour = parseInt(s[0]);
-       curHour = this.state.startHour;
-       if (this.state.startHour === 12)
-          this.state.startHour -= 12;
-       this.state.startMin = parseInt(s[1]);
-     }
-     if(this.state.endTime.includes('PM'))
-     {
-       this.state.endTime.replace('PM','');
-       let s = this.state.endTime.split(':',2);
-       this.state.endHour = parseInt(s[0]);
-       if (this.state.endHour < 12)
-          this.state.endHour += 12;
-       this.state.endMin = parseInt(s[1]);
-     }
-     else
-     {
-       this.state.endTime.replace('AM','');
-       let s = this.state.endTime.split(':',2);
-       //console.log(s[0]);
-       this.state.endHour = parseInt(s[0]);
-       if (this.state.endHour === 12)
-          this.state.endHour -= 12;
-       this.state.endMin = parseInt(s[1]);
-     }
+     console.log(this.state.startTime);
+     let s = this.state.startTime.split(':',2);
+     this.state.startHour = parseInt(s[0]);
+     this.state.startMin = parseInt(s[1]);
+     let ss = this.state.endTime.split(':',2);
+     this.state.endHour = parseInt(ss[0]);
+     this.state.endMin = parseInt(ss[1]);
+
      let hrs = this.state.endHour - this.state.startHour;
      if (hrs < 0) {
         hrs = hrs + 24;
@@ -131,23 +97,32 @@ class NewTable extends Component{
    }
    let total = 60 * hrs + mins;
    let numSlots = total/this.state.duration + 1
-    let curMin = this.state.startMin;
-    console.log(this.state.numBooths);
-
+   let curMin = this.state.startMin;
+   let curHour = this.state.startHour;
+   if (curHour >= 12) {
+      this.state.cur = 'PM';
+      if (curHour > 12)
+        curHour -= 12;
+    }
+    else {
+      this.state.cur = 'AM';
+      if (curHour == 0)
+        curHour += 12;
+    }
     if (curMin < 10)
       this.state.times.push(curHour + ':0' + curMin + this.state.cur);
     else
       this.state.times.push(curHour + ':' + curMin + this.state.cur);
 
     this.state.available.push(this.state.numBooths);
-    this.state.times.push()
+    var prevHour = curHour;
     for (let i = 0; i < numSlots - 1; i++) {
       this.state.available.push(this.state.numBooths);
       curMin += parseInt(this.state.duration);
       if (curMin >= 60) {
         curMin -= 60;
         curHour++;
-        if (curHour === 12) {
+        if (curHour === 12 && prevHour != 12) {
           if (this.state.cur === 'AM')
             this.state.cur = 'PM';
           else
@@ -155,6 +130,7 @@ class NewTable extends Component{
         }
         if (curHour > 12)
           curHour -= 12;
+        prevHour = curHour;
       }
       if (curMin < 10)
         this.state.times.push(curHour + ':0' + curMin + this.state.cur);
@@ -170,7 +146,7 @@ class NewTable extends Component{
     this.setState({submitted: true});
     event.preventDefault();
   }
-  event.preventDefault();  
+  event.preventDefault();
  };
 
   render() {
@@ -209,7 +185,7 @@ class NewTable extends Component{
           <label>Duration per Timeslot: </label>
           <input
             type = 'number'
-            min = '0' 
+            min = '0'
             value={this.state.duration}
             onChange={event => this.setState({ duration: event.target.value })}
           /> <p>average: {this.state.average}</p>
