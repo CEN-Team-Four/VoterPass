@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import './index.css';
 import Button from 'react-bootstrap/Button';
+
+import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 class AssignTimeslot extends Component {
@@ -19,9 +21,8 @@ class AssignTimeslot extends Component {
   }
 
   handleChange = (e) => {
-    console.log(e.target.value);
     this.setState({
-      selected: e.target.value
+      selected: e.value
     });
   }
 
@@ -43,15 +44,13 @@ class AssignTimeslot extends Component {
         <h1>Assign Timeslot</h1>
         <div className="style-1">
           <h3>Time:&nbsp;</h3>
-          <select onChange={this.handleChange}>
-            {this.props.timeSlots.map((item, index) => {
-              if (this.props.availability[index] > 0) {
-                return (
-                  <option>{item}</option>
-                );
-              }
+          <Dropdown 
+            options={this.props.timeSlots.filter((item, index) => {
+              return this.props.availability[index] > 0;
             })}
-          </select>
+            onChange={this.handleChange}
+            value={this.state.selected}
+          />
         </div>
         <div className="style-1">
           {<Link to={{
@@ -69,3 +68,13 @@ class AssignTimeslot extends Component {
 }
 
 export default AssignTimeslot;
+
+{/* <select onChange={this.handleChange}>
+  {this.props.timeSlots.map((item, index) => {
+    if (this.props.availability[index] > 0) {
+      return (
+        <option>{item}</option>
+      );
+    }
+  })}
+</select> */}

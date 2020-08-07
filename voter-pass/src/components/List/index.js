@@ -18,7 +18,7 @@ function List(props) {
         <div className="list">
             <Table striped className="time-list" style={{marginBottom: 0}}>
                 <thead>
-                    <th className="time-list-heading">Measured Voting Durations</th>
+                    <th className="time-list-heading">Measured Times Between Voters</th>
                 </thead>
                 <tbody>
                     {listItems}
