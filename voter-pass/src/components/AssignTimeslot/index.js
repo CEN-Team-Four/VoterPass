@@ -68,13 +68,3 @@ class AssignTimeslot extends Component {
 }
 
 export default AssignTimeslot;
-
-{/* <select onChange={this.handleChange}>
-  {this.props.timeSlots.map((item, index) => {
-    if (this.props.availability[index] > 0) {
-      return (
-        <option>{item}</option>
-      );
-    }
-  })}
-</select> */}

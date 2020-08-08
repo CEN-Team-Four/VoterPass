@@ -179,6 +179,7 @@ class NewTable extends Component{
           <br></br>
           <label>Duration per Timeslot: </label>
           <input
+            placeholder= 'minutes'
             type = 'number'
             min = '1'
             value={this.state.duration}

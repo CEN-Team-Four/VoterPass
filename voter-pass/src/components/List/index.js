@@ -13,16 +13,19 @@ function List(props) {
             return <tr><td>{minutes} : {seconds}</td></tr>
         });
     }
-    
+
     return (
         <div className="list">
             <Table striped className="time-list" style={{marginBottom: 0}}>
                 <thead>
                     <th className="time-list-heading">Measured Times Between Voters</th>
-                </thead>
+                </thead>                
                 <tbody>
                     {listItems}
                 </tbody>
+                <div className = 'empty-msg'>
+                    {listItems.length === 0 && <p>Times stored by the timer will appear here.</p>}
+                </div>
             </Table>
         </div>
     );

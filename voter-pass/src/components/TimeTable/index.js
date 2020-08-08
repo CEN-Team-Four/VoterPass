@@ -20,6 +20,7 @@ function TimeTable(props) {
     });
 
     return (
+        <div className='table-wrapper'>
         <Table striped className="time-table table-striped table-bordered" style={{marginBottom: 0}}>
             <thead className="table-head">
                 <tr>
@@ -29,8 +30,12 @@ function TimeTable(props) {
             </thead>
             <tbody className="table-body">
                 {tableRows}
-            </tbody>
-        </Table>
+            </tbody>           
+        </Table> 
+        <div className = 'empty-msg'>
+            {tableRows.length === 0 && <p>Navigate to the new table page to create this table data</p>}
+        </div>
+        </div>
     );
 }
 
