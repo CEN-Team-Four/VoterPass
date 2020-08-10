@@ -188,6 +188,7 @@ class NewTable extends Component{
 
           <label>Availability per Timeslot: </label>
           <input
+            placeholder= 'no. of voters'
             type = 'number'
             min = '1'
             value={this.state.numBooths}
