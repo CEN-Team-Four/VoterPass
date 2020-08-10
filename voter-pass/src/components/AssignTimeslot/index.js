@@ -61,13 +61,13 @@ class AssignTimeslot extends Component {
       {
           minuteInt = "0" + minuteInt;
       }
-      if (hourInt == 12)
+      if (hourInt === 12)
       {
-        if (merid == "AM")
+        if (merid === "AM")
         {
           merid = "PM"
         }
-        else if (merid == "PM")
+        else if (merid === "PM")
         {
           merid = "AM"
         }

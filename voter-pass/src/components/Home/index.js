@@ -15,8 +15,27 @@ class Home extends React.Component {
     };
 
     initializeExpiration(){
-        let exp = JSON.parse(localStorage.getItem('exp'))
-        return exp;
+        let test = 'test', myBool;
+        try {
+            localStorage.setItem(test, test);
+            localStorage.removeItem(test);
+            myBool = true;
+        } catch(e) {
+            myBool = false;
+        }
+        if(myBool === false){
+            alert('Please enable cookies.')
+            return [];
+        }
+        else{
+            if(!(localStorage.getItem('exp') === null)){
+                let items = JSON.parse(localStorage.getItem('exp'))
+                return items;
+            }
+            else{
+                return 0;
+            }
+        }
     }
 
     initializeAvailability(){
