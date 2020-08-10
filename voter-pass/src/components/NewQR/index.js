@@ -9,7 +9,9 @@ var QRCode = require('qrcode.react');
 class NewQR extends Component {
     state={
         curTime : new Date(),
-        timSlot: this.props.location.state.timSlot
+        timSlot: this.props.location.state.timSlot,
+        expTime: this.props.location.state.expTime,
+        voterNum: this.props.location.state.voterNum
     }
 
   render() {
@@ -17,22 +19,24 @@ class NewQR extends Component {
         <div>
             <div className='qrPos'>
                 <h1>inLine Ticket</h1>
-                <QRCode value={"Date: " + 
+                <QRCode value={"Date:" + 
                       (this.state.curTime.getMonth() + 1) + "/" + 
                       this.state.curTime.getDate() + "/" +
                       this.state.curTime.getFullYear() + '\n' +
-                      "Time: " + 
-                  this.state.timSlot}></QRCode>
+                      " Time:" + this.state.timSlot + '\n' + 
+                      " Expiration Time:" + localStorage.getItem('Expiration Time') + '\n' +
+                      " Voter:" + this.state.voterNum}></QRCode>
                 <div>
                   <h3>Date: {this.state.curTime.getMonth() + 1}/
                    {this.state.curTime.getDate()}/
                    {this.state.curTime.getFullYear()} </h3>
-                  <h3>Assigned Time: {this.state.timSlot}</h3>                
+                  <h3>Assigned Time: {this.state.timSlot}</h3>    
+                  <h3>This ticket expires at: {JSON.parse(localStorage.getItem('Expiration Time'))}</h3>   
                 </div>
             </div>
             <div className = 'buttons'>
               <Button className="btn" variant="primary" onClick={window.print}>Print</Button>
-              <Button className="btn" variant="dark" href="/">Return to Table</Button>
+              <Button className="btn" variant="dark" href="/">Return to table</Button>
             </div>
         </div>
     );

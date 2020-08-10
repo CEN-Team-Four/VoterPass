@@ -12,6 +12,7 @@ class NewTable extends Component{
     Location: '',
     startTime: '',
     endTime: '',
+    expTime: '',
     /*
     startHour: '',
     startMin: '',
@@ -72,6 +73,10 @@ class NewTable extends Component{
     return true;
   }
 
+  handleChange2 = (event) => {
+    this.setState({ expTime: event.target.value })
+    localStorage.setItem('exp',JSON.stringify(event.target.value))
+  }
   handleSubmit = (event) => {
 
    if (this.validate()) {
@@ -174,6 +179,17 @@ class NewTable extends Component{
             type = 'time'
             value={this.state.endTime}
             onChange={event => this.setState({ endTime: event.target.value })}
+          />
+
+
+          <br></br>
+          <label>Expiration Time: </label>
+          <input
+            placeholder= 'expiration time'
+            type = 'number'
+            min = '1'
+            value={this.state.expTime}
+            onChange={this.handleChange2}
           />
 
           <br></br>
