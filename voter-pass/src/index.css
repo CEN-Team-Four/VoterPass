@@ -46,6 +46,10 @@ input[type='text'] {
 	height: 4rem;
 }
 
+ol, li {
+	color: grey;
+}
+
 .column {
   margin: auto;
   float: none;
