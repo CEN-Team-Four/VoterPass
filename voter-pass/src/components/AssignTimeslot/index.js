@@ -10,7 +10,9 @@ import 'react-dropdown/style.css';
 
 class AssignTimeslot extends Component {
   state = {
-    selected: this.initializeSelected()
+    selected: this.initializeSelected(),
+    expTime: this.initializeExpiration(),
+    voterNum: ''
   };
 
   initializeSelected() {
@@ -18,6 +20,64 @@ class AssignTimeslot extends Component {
       if (this.props.availability[i] > 0)
         return this.props.timeSlots[i];
     }
+  }
+
+  initializeExpiration() {
+    return this.props.expTime;
+  }
+
+  myFunc() {
+
+    var myVar = this.state.selected;
+    var hours;
+    var minutes;
+    var hourInt;
+    var minuteInt;
+    var merid;
+
+    if (myVar.charAt(1) === ":")
+    {
+      hours = myVar.substring(0,1)
+      minutes = myVar.substring(2,4)
+      merid = myVar.substring(4,6)
+      hourInt = parseInt(hours)
+      minuteInt = parseInt(minutes)
+    }
+    else
+    {
+      hours = myVar.substring(0,2)
+      minutes = myVar.substring(3,5)
+      merid = myVar.substring(5,7)
+      hourInt = parseInt(hours)
+      minuteInt = parseInt(minutes)
+    }
+
+    minuteInt = minuteInt + parseInt(this.state.expTime);
+    if (minuteInt > 59)
+    {
+      minuteInt = minuteInt - 60;
+      hourInt = hourInt + 1;
+      if (minuteInt < 10)
+      {
+          minuteInt = "0" + minuteInt;
+      }
+      if (hourInt == 12)
+      {
+        if (merid == "AM")
+        {
+          merid = "PM"
+        }
+        else if (merid == "PM")
+        {
+          merid = "AM"
+        }
+      }
+      if (hourInt > 12)
+      {
+        hourInt = hourInt - 12;
+      }
+    }
+    localStorage.setItem('Expiration Time', JSON.stringify(hourInt + ":" + minuteInt + merid))
   }
 
   handleChange = (e) => {
@@ -34,8 +94,15 @@ class AssignTimeslot extends Component {
 
       let temp = JSON.parse(localStorage.getItem('availability'))
       temp[a] -= 1;
-      localStorage.setItem('availability', JSON.stringify(temp))
+       
+      var temp2 = parseInt(JSON.parse(localStorage.getItem('av'))) - temp[a];
+
+      localStorage.setItem('voterNum', JSON.stringify(temp2));
+      localStorage.setItem('availability', JSON.stringify(temp));
     }
+
+    this.myFunc();
+
   }
 
   render() {
@@ -56,7 +123,9 @@ class AssignTimeslot extends Component {
           {<Link to={{
             pathname: '/generateqr',
             state: {
-              timSlot: this.state.selected
+              timSlot: this.state.selected,
+              expTime: this.state.expTime,
+              voterNum: this.state.voterNum
             }
           }}>
             <Button variant="success" onClick={this.updateAvailability}> Confirm </Button>

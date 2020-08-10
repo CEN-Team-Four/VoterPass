@@ -10,8 +10,14 @@ import './index.css';
 class Home extends React.Component {
     state = {
         timeslots: this.initializeTimeslots(),
-        availability: this.initializeAvailability()
+        availability: this.initializeAvailability(),
+        expTime: this.initializeExpiration()
     };
+
+    initializeExpiration(){
+        let exp = JSON.parse(localStorage.getItem('exp'))
+        return exp;
+    }
 
     initializeAvailability(){
         let test = 'test', myBool;
@@ -76,7 +82,7 @@ render(){
                 </Link>               
             </div>
             <div className = 'assign-container'>
-                <AssignTimeslot  timeSlots= {this.state.timeslots} availability= {this.state.availability} handler={this.handler}/>
+                <AssignTimeslot  timeSlots={this.state.timeslots} availability={this.state.availability} expTime={this.state.expTime} handler={this.handler}/>
             </div> 
        </div>
     );

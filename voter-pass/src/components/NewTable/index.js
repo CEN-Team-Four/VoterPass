@@ -12,13 +12,7 @@ class NewTable extends Component{
     Location: '',
     startTime: '',
     endTime: '',
-    /*
-    startHour: '',
-    startMin: '',
-    endHour: '',
-    endMin: '',
-    cur: '',
-    */
+    expTime: '',
     numBooths:'',
     duration:'',
     times: [],
@@ -70,6 +64,16 @@ class NewTable extends Component{
 
     }
     return true;
+  }
+
+  handleChange2 = (event) => {
+    this.setState({ expTime: event.target.value })
+    localStorage.setItem('exp',JSON.stringify(event.target.value))
+  }
+
+  handleChange3 = (event) => {
+    this.setState({ numBooths: event.target.value })
+    localStorage.setItem('av',JSON.stringify(event.target.value))
   }
 
   handleSubmit = (event) => {
@@ -176,6 +180,17 @@ class NewTable extends Component{
             onChange={event => this.setState({ endTime: event.target.value })}
           />
 
+
+          <br></br>
+          <label>Expiration Time: </label>
+          <input
+            placeholder= 'expiration time'
+            type = 'number'
+            min = '1'
+            value={this.state.expTime}
+            onChange={this.handleChange2}
+          />
+
           <br></br>
           <label>Duration per Timeslot: </label>
           <input
@@ -192,7 +207,7 @@ class NewTable extends Component{
             type = 'number'
             min = '1'
             value={this.state.numBooths}
-            onChange={event => this.setState({ numBooths: event.target.value })}
+            onChange={this.handleChange3}
           />
 
           <Button variant="success" type="submit">Submit</Button>
