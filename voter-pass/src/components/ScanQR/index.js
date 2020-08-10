@@ -54,10 +54,11 @@ class ScanQR extends Component {
           <div class="col-lg-6">
             <div className="cen">
             <h1>Scan QR Code</h1>
-            <h5><i>Center the QR code int the window on the right</i></h5>
+            <h5><i>Center the QR code in the window on the right</i></h5>
             <h2>{this.state.date}</h2>
             <h2>{this.state.time}</h2>
             <h2>{this.state.expTime}</h2>
+            <h2>{this.state.voterNum}</h2>
             </div>
             <div class="row" className="cen">
         <Link to={{pathname: '/'}}>

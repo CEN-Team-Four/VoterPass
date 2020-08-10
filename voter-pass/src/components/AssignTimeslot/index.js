@@ -12,20 +12,13 @@ class AssignTimeslot extends Component {
   state = {
     selected: this.initializeSelected(),
     expTime: this.initializeExpiration(),
-    voterNum: this.initializeVoterNum()
+    voterNum: ''
   };
 
   initializeSelected() {
     for (let i = 0; i < this.props.timeSlots.length; i++) {
       if (this.props.availability[i] > 0)
         return this.props.timeSlots[i];
-    }
-  }
-
-  initializeVoterNum() {
-    for (let i = 0; i < this.props.timeSlots.length; i++) {
-      if (this.props.availability[i] > 0)
-        return this.props.availability[i];
     }
   }
 
@@ -42,19 +35,13 @@ class AssignTimeslot extends Component {
     var minuteInt;
     var merid;
 
-    if (myVar.charAt(1) == ":")
+    if (myVar.charAt(1) === ":")
     {
       hours = myVar.substring(0,1)
       minutes = myVar.substring(2,4)
       merid = myVar.substring(4,6)
       hourInt = parseInt(hours)
       minuteInt = parseInt(minutes)
-      this.setState({
-        myNum: "THIS"
-      });
-      localStorage.setItem('minutes', JSON.stringify(minutes))
-      localStorage.setItem('hours', JSON.stringify(hours))
-      localStorage.setItem('meridian', JSON.stringify(merid))
     }
     else
     {
@@ -63,19 +50,7 @@ class AssignTimeslot extends Component {
       merid = myVar.substring(5,7)
       hourInt = parseInt(hours)
       minuteInt = parseInt(minutes)
-      this.setState({
-        myNum: "THAT"
-      });
-      localStorage.setItem('minutes', JSON.stringify(minutes))
-      localStorage.setItem('hours', JSON.stringify(hours))
-      localStorage.setItem('meridian', JSON.stringify(merid))
     }
-
-    var ti = localStorage.exp
-    var tim = parseInt(ti)
-
-    localStorage.setItem('ti', JSON.stringify(ti))
-    localStorage.setItem('tim', JSON.stringify(tim))
 
     minuteInt = minuteInt + parseInt(this.state.expTime);
     if (minuteInt > 59)
@@ -119,7 +94,11 @@ class AssignTimeslot extends Component {
 
       let temp = JSON.parse(localStorage.getItem('availability'))
       temp[a] -= 1;
-      localStorage.setItem('availability', JSON.stringify(temp))
+       
+      var temp2 = parseInt(JSON.parse(localStorage.getItem('av'))) - temp[a];
+
+      localStorage.setItem('voterNum', JSON.stringify(temp2));
+      localStorage.setItem('availability', JSON.stringify(temp));
     }
 
     this.myFunc();

@@ -13,13 +13,6 @@ class NewTable extends Component{
     startTime: '',
     endTime: '',
     expTime: '',
-    /*
-    startHour: '',
-    startMin: '',
-    endHour: '',
-    endMin: '',
-    cur: '',
-    */
     numBooths:'',
     duration:'',
     times: [],
@@ -77,6 +70,12 @@ class NewTable extends Component{
     this.setState({ expTime: event.target.value })
     localStorage.setItem('exp',JSON.stringify(event.target.value))
   }
+
+  handleChange3 = (event) => {
+    this.setState({ numBooths: event.target.value })
+    localStorage.setItem('av',JSON.stringify(event.target.value))
+  }
+
   handleSubmit = (event) => {
 
    if (this.validate()) {
@@ -208,7 +207,7 @@ class NewTable extends Component{
             type = 'number'
             min = '1'
             value={this.state.numBooths}
-            onChange={event => this.setState({ numBooths: event.target.value })}
+            onChange={this.handleChange3}
           />
 
           <Button variant="success" type="submit">Submit</Button>

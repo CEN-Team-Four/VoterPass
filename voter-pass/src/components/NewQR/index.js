@@ -11,7 +11,7 @@ class NewQR extends Component {
         curTime : new Date(),
         timSlot: this.props.location.state.timSlot,
         expTime: this.props.location.state.expTime,
-        voterNum: this.props.location.state.voterNum
+        voterNum: localStorage.getItem('voterNum')
     }
 
   render() {
@@ -31,7 +31,7 @@ class NewQR extends Component {
                    {this.state.curTime.getDate()}/
                    {this.state.curTime.getFullYear()} </h3>
                   <h3>Assigned Time: {this.state.timSlot}</h3>    
-                  <h3>This ticket expires at: {JSON.parse(localStorage.getItem('Expiration Time'))}</h3>   
+                  <h3>This ticket expires at: {JSON.parse(localStorage.getItem('Expiration Time'))}</h3>
                 </div>
             </div>
             <div className = 'buttons'>
