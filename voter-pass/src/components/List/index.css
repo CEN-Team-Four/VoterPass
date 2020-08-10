@@ -20,5 +20,7 @@
 }
 
 .empty-msg{
-    margin-top: 30%;
+    text-align: center;
+    margin: 30% auto;
+    width: 80%;
 }

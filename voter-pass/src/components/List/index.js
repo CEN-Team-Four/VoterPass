@@ -24,7 +24,7 @@ function List(props) {
                     {listItems}
                 </tbody>
                 <div className = 'empty-msg'>
-                    {listItems.length === 0 && <p>Times stored by the timer will appear here.</p>}
+                    {listItems.length === 0 && <p>Use the Add to List button to store times here.</p>}
                 </div>
             </Table>
         </div>
