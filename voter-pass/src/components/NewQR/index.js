@@ -32,7 +32,7 @@ class NewQR extends Component {
             </div>
             <div className = 'buttons'>
               <Button className="btn" variant="primary" onClick={window.print}>Print</Button>
-              <Button className="btn" variant="dark" href="/">Return to table</Button>
+              <Button className="btn" variant="dark" href="/">Return to Table</Button>
             </div>
         </div>
     );
