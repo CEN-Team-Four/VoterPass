@@ -57,10 +57,6 @@ class AssignTimeslot extends Component {
     {
       minuteInt = minuteInt - 60;
       hourInt = hourInt + 1;
-      if (minuteInt < 10)
-      {
-          minuteInt = "0" + minuteInt;
-      }
       if (hourInt === 12)
       {
         if (merid === "AM")
@@ -77,6 +73,12 @@ class AssignTimeslot extends Component {
         hourInt = hourInt - 12;
       }
     }
+
+    if (minuteInt < 10)
+    {
+        minuteInt = "0" + minuteInt;
+    }
+
     localStorage.setItem('Expiration Time', JSON.stringify(hourInt + ":" + minuteInt + merid))
   }
 
@@ -94,7 +96,7 @@ class AssignTimeslot extends Component {
 
       let temp = JSON.parse(localStorage.getItem('availability'))
       temp[a] -= 1;
-       
+
       var temp2 = parseInt(JSON.parse(localStorage.getItem('av'))) - temp[a];
 
       localStorage.setItem('voterNum', JSON.stringify(temp2));
@@ -105,21 +107,13 @@ class AssignTimeslot extends Component {
 
   }
 
-  verify = () =>{
-    for (let i = 0; i < this.props.availability.length; i++) {
-      if (this.props.availability[i] > 0)
-        return true;
-    }
-    return false;   
-  }
-
   render() {
     return (
       <div className="assignT">
         <h1>Assign Timeslot</h1>
         <div className="style-1">
           <h3>Time:&nbsp;</h3>
-          <Dropdown 
+          <Dropdown
             options={this.props.timeSlots.filter((item, index) => {
               return this.props.availability[index] > 0;
             })}
@@ -135,7 +129,7 @@ class AssignTimeslot extends Component {
               expTime: this.state.expTime,
               voterNum: this.state.voterNum
             }
-          }}>{this.verify() > 0 &&
+          }}>{this.state.expTime > 0 &&
             <Button variant="success" onClick={this.updateAvailability}> Confirm </Button>}
           </Link>}
         </div>
