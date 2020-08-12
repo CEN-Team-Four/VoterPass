@@ -202,7 +202,7 @@ class NewTable extends Component{
           <br></br>
           <label>Expiration Time: </label>
           <input
-            placeholder= 'minutes'
+            placeholder= 'expiration time'
             type = 'number'
             min = '1'
             value={this.state.expTime}
