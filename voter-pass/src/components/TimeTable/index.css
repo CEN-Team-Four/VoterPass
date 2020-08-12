@@ -13,7 +13,10 @@
 
 .empty-msg{
     text-align: center;
+    margin: 30% auto;
+    width: 95%;
 }
+
 
 .table-wrapper{
     height: 100%;
