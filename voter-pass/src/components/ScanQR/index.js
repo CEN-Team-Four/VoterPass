@@ -12,8 +12,9 @@ class ScanQR extends Component {
     time: '',
     date: '',
     valid: '',
+    valid2: '',
     timeSlots: this.props.location.state.timeSlots,
-    availability: this.props.location.state.availability
+    availability: this.props.location.state.availability,
   }
  
   handleScan = data => {
@@ -22,37 +23,25 @@ class ScanQR extends Component {
       if (localStorage.getItem('Last Ticket') === null)
       {
         localStorage.setItem('Last Ticket',JSON.stringify(data));
-        localStorage.setItem('temp_1',JSON.stringify('0'));
         localStorage.setItem('update',JSON.stringify('true'));
       }
       else
       {
         if (data === JSON.parse(localStorage.getItem('Last Ticket')))
         {
-          localStorage.setItem('status',JSON.stringify('same'));
           localStorage.setItem('update',JSON.stringify('false'));
         }
         else
         {
-          localStorage.setItem('status',JSON.stringify('different'));
           localStorage.setItem('Last Ticket',JSON.stringify(data));
           localStorage.setItem('update',JSON.stringify('true'));
         }
-      }
-
-
-      if (JSON.parse(localStorage.getItem('temp_1')) === '0')
-      {
-        localStorage.setItem('temp_1',JSON.stringify('1'));
-      }
-      else if (JSON.parse(localStorage.getItem('temp_1')) === '1')
-      {
-        localStorage.setItem('temp_1',JSON.stringify('0'));
       }
     
       var str = data;
       var n = str.lastIndexOf(' ');
       var votNum = str.substring((n + 1),(n + 15));
+      var votNum2 = votNum.substring(6);
       str = str.substring(0, n);
       n = str.lastIndexOf(' ');
       var ExpTime = str.substring((n + 1),(n + 15));
@@ -78,48 +67,43 @@ class ScanQR extends Component {
         date: Date
       })
 
+      votNum2 = parseInt(votNum2);
+
       var myTimeslots = this.state.timeSlots;
-      var myAv = this.state.availability;
 
-      let tempAvailable = JSON.parse(localStorage.getItem('available'))
+      var upd = 0;
 
-
-
-      if (JSON.parse(localStorage.getItem('update')) === 'true')
-      {
       for (let i = 0; i < myTimeslots.length; i++) 
       {
         if (myTimeslots[i] === Time2)
         {
-          let arr = JSON.parse(localStorage.getItem('tickets'));
-          
-          if (arr[i] > 0)
-          {
-            arr[i] = arr[i] - 1;
-          }
-          else if (arr[i] === 0)
-          {
-            tempAvailable[i] = false;
-            localStorage.setItem('available', JSON.stringify(tempAvailable));
-          }
+          upd = 1;
+          let ticketsScanned = JSON.parse(localStorage.getItem('Tickets Scanned'));
 
-          if (tempAvailable[i] === true)
+          if (ticketsScanned[i][votNum2 - 1] === null)
           {
             this.setState({
               valid: 'Confirmed!'
             })
+            ticketsScanned[i][votNum2 - 1] = true
           }
           else
           {
             this.setState({
-              valid: 'This ticket is invalid!'
+              valid: 'Ticket Already Scanned!'
             })
           }
           
-          localStorage.setItem('tickets', JSON.stringify(arr));
+          localStorage.setItem('Tickets Scanned', JSON.stringify(ticketsScanned));
         }
       }
-    }
+
+      if (upd === 0)
+      {
+        this.setState({
+          valid: 'This ticket is invalid!'
+        })
+      }
     }
 
   }
@@ -140,6 +124,7 @@ class ScanQR extends Component {
             <h2>{this.state.expTime}</h2>
             <h2>{this.state.voterNum}</h2>
             <h2>{this.state.temp}</h2>
+            <h2>{this.state.valid2}</h2>
             </div>
             <div class="row" className="cen">
         <Link to={{pathname: '/'}}>
@@ -149,7 +134,7 @@ class ScanQR extends Component {
           </div>
           <div class="col-lg-6">
           <QrReader
-          delay={500}
+          delay={2500}
           onError={this.handleError}
           onScan={this.handleScan}
           style={{ width: '100%' }}
