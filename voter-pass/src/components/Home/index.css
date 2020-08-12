@@ -1,5 +1,6 @@
 .home-wrapper {
     height: 100%;
+    width: 97%;
     max-height: 100%;
     display: grid;
     grid-template-columns: 40% auto;
@@ -8,6 +9,7 @@
         "table buttons"
         "table assign"; 
     padding-left: 10px;
+    margin: 15px auto;
     padding-right: 10px;
 }
 

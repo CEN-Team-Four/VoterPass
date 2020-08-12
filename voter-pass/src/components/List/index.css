@@ -1,8 +1,6 @@
 .list {
     border: 2px solid #dee2e6;
-    height: 95%;
-    margin-top: 20px;
-
+    height: 100%;
     grid-area: time-list;
 
     overflow-y: scroll;
@@ -17,6 +15,7 @@
 
 .time-list-heading {
     border-top: 0;
+    font-size: 18px;
 }
 
 .empty-msg{

@@ -70,18 +70,21 @@ class Timer extends Component {
     return (
       <div className="timer">
         <div className="stopwatch-display">
-          <div>
+          <div className="timer-page-text">
             Timer
-                  <br></br>
+            <div className="time-text">
             {minutes} : {seconds}
+            </div>
           </div>
+
+          
 
           <div className="buttons-row-1">
             {this.state.timerOn === false && this.state.timerTime === 0 && (
-              <Button variant="success" onClick={this.startTimer}>Start</Button>
+              <Button className="start-stop" variant="success" onClick={this.startTimer}>Start</Button>
             )}
             {this.state.timerOn === true && (
-              <Button variant="secondary" onClick={this.stopTimer}>Stop</Button>
+              <Button className="start-stop" variant="secondary" onClick={this.stopTimer}>Stop</Button>
             )}
             {this.state.timerOn === false && this.state.timerTime > 0 && (
               <Button variant="success" onClick={this.startTimer}>Resume</Button>

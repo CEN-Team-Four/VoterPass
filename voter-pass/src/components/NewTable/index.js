@@ -210,7 +210,7 @@ class NewTable extends Component{
             onChange={this.handleChange3}
           />
 
-          <Button variant="success" type="submit">Submit</Button>
+          <Button className="new-table-submit" variant="success" type="submit">Submit</Button>
           <Button variant="secondary" href="/">Return to Table</Button>
           {this.state.submitted === true &&  (
               <Redirect to="/" />

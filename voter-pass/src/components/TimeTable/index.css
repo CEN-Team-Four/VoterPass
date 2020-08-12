@@ -3,6 +3,10 @@
     max-height: 100%;
 }
 
+.table-head {
+    font-size: 18px;
+}
+
 .table-body {
     max-height: 100%;
 }
