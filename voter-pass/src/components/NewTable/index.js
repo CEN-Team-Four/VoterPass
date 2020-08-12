@@ -211,7 +211,7 @@ class NewTable extends Component{
           />
 
           <Button variant="success" type="submit">Submit</Button>
-          <Button variant="dark" href="/">Return to Table</Button>
+          <Button variant="secondary" href="/">Return to Table</Button>
           {this.state.submitted === true &&  (
               <Redirect to="/" />
           )}

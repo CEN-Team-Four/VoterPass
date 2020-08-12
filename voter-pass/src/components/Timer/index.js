@@ -81,13 +81,13 @@ class Timer extends Component {
               <Button variant="success" onClick={this.startTimer}>Start</Button>
             )}
             {this.state.timerOn === true && (
-              <Button variant="danger" onClick={this.stopTimer}>Stop</Button>
+              <Button variant="secondary" onClick={this.stopTimer}>Stop</Button>
             )}
             {this.state.timerOn === false && this.state.timerTime > 0 && (
-              <Button variant="dark" onClick={this.startTimer}>Resume</Button>
+              <Button variant="success" onClick={this.startTimer}>Resume</Button>
             )}
             {this.state.timerOn === false && this.state.timerTime > 0 && (
-              <Button variant="dark" onClick={this.resetTimer}>Reset</Button>
+              <Button variant="secondary" onClick={this.resetTimer}>Reset</Button>
             )}
             {this.state.timerOn === false && this.state.timerTime > 0 && (
               <Button variant="dark" onClick={this.storeTime}>Add to List</Button>
@@ -96,7 +96,7 @@ class Timer extends Component {
 
           <div className="buttons-row-2">
             {!(localStorage.getItem('listOfTimes') === null) && (
-              <Button variant="dark" onClick={this.clearList}>Clear List</Button>
+              <Button variant="danger" onClick={this.clearList}>Clear List</Button>
             )}
           </div>
         </div>

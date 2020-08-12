@@ -20,6 +20,10 @@ h2 {
 	margin-left: 1rem;
 }
 
+p, ol, li {
+	color: black !important;
+}
+
 /* ##### general ##### */
 * {
 	box-sizing: border-box;

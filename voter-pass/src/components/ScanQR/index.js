@@ -62,7 +62,7 @@ class ScanQR extends Component {
             </div>
             <div class="row" className="cen">
         <Link to={{pathname: '/'}}>
-            <Button variant="success" onClick={this.updateAvailability}>Return to table</Button>
+            <Button variant="secondary" onClick={this.updateAvailability}>Return to Table</Button>
           </Link>
         </div>
           </div>
