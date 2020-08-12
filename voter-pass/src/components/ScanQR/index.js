@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
  
 class ScanQR extends Component {
   state = {
-    result: 'No result',
     voterNum: '',
     expTime: '',
     time: '',
@@ -59,8 +58,13 @@ class ScanQR extends Component {
       var Time2 = Time.substring(5);
       str = str.substring(0, n);
       var Date = str;
+
+      Date = Date.replace('Date:','Date: ');
+      Time = Time.replace('Time:','Time: ')
+      ExpTime = ExpTime.replace('Expiration Time:','Expiration Time: ');
+      votNum = votNum.replace('Voter:','Voter: ');
+
       this.setState({
-        result: data,
         voterNum: votNum,
         expTime: ExpTime,
         time: Time,
