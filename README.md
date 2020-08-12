@@ -16,3 +16,61 @@ The basic workflow of VoterPass is as follows:
 ## Installation
 
 ## Usage
+This section will cover how to use and navigate the VoterPass application.
+
+### Navigation
+The VoterPass application consists of three main pages:
+
+1. Timeslot Table (Home Page)
+2. Timer
+3. Help and Instructions
+
+These three pages can be accessed from the navigation bar in the top-right corner.
+
+The Timeslot Table acts as the home page for the VoterPass application. From this page, you can access such features as:
+
+1. Generating a new Timeslot Table
+2. Assigning a timeslot
+3. Scanning a QR code ticket
+
+### Using the Timer
+In order to gather data that will assist in determining the duration of timeslots for the Timeslot Table, we recommend using the built-in Timer. The Timer page consists of three features: the Timer, the Measured Time Between Voters list, and the Average Time Between Voters display.
+
+The best protocol when using the Timer is to measure the duration of time that passes between voters exiting the voting booths. The procedure for using the Timer is as follows:
+
+1. When the first voter leaves the voting booths, press Start on the Timer.
+2. When the next voter leaves the voting booths, press Stop on the Timer.
+3. Click on the Add to List button to add the recorded time to the Measured Time Between Voters list.
+4. Press the Reset button on the Timer.
+5. Press the Start button on the Timer and repeat steps 2-5 until enough data has been gathered to get a good Average Time Between Voters.
+
+### Generating a Timeslot Table
+The Timeslot Table displays the list of timeslots and their corresponding availabilities.
+
+The procedure for generating a new Timeslot Table is as follows:
+
+1. On the Timeslot Table page, click on the New Table button.
+2. Enter the Start Time and End Time corresponding to your polling location’s hours. We recommend adding an extra hour to the End Time to account for voters arriving near your location’s closing time.
+3. Enter the Duration, in minutes, for each timeslot. The Average Time Between Voters from the Timer page is displayed here for your convenience.
+4. Enter the Availability per Timeslot. This is the number of voters that will be assigned to each timeslot.
+5. Click on the Submit button to generate a new Timeslot Table with your given parameters.
+
+### Assigning a Timeslot
+Once a Timeslot Table is generated, you can assign timeslots from the table to voters.
+
+The procedure for assigning a timeslot to a voter is as follows:
+
+1. On the Timeslot Table page, select the time of the timeslot you wish to assign from the available options in the dropdown menu.
+2. Click the Confirm button. This will redirect you to the inLine Ticket with the QR code that corresponds to the timeslot you just assigned.
+3. On the inLine Ticket page, click on the Print button to print the ticket or to save it as a PDF. Alternatively, you can have the voter take a picture of their ticket.
+4. Click on the Return to Table button to return to the Timeslot Table page.
+
+### Scanning a QR Code
+When a voter returns for their timeslot, you can scan the QR code on their inLine Ticket to verify the validity of the ticket.
+
+The procedure for scanning a QR code is as follows:
+
+1. On the Timeslot Table page, click on the Scan QR Code button.
+2. Using your device’s camera, scan the QR code on the ticket.
+3. If the ticket is valid, a confirmation message will appear. If the ticket is not valid, an error message will display.
+4. Once a ticket has been verified, click on the Return to Table button to return to the Timeslot Table page.
