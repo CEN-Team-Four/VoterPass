@@ -1,17 +1,18 @@
-# Voter Pass
+# VoterPass
 
-# startup
+## Introduction
+VoterPass is a virtual queuing system for polling locations. Its purpose is to allow election officials to convert physical lines of voters into virtual lines, so as to encourage social distancing and other safety protocols that help prevent the spread of COVID-19.
 
-1. git init
+### Features
+VoterPass uses QR code tickets to assign voters to a timeslot for them to return to later in the day. It accomplishes this by providing a Timeslot Table to keep track of timeslots, a Timer to gather supplemental data, and a means to generate and scan QR codes.
 
-2. git clone -b sprint-3 https://github.com/CEN-Team-Four/VoterPass
+The basic workflow of VoterPass is as follows:
 
-3. cd VoterPass
+1. Use the Timer feature to gather data on how long it takes for voters to vote.
+2. Generate a Timeslot Table that partitions the polling location’s voting hours into timeslots that can be assigned to voters, using the data gathered from the previous step.
+3. Assign timeslots from the Timeslot Table to voters in the order of the physical line at the polling location, using QR code tickets.
+4. Process the QR code tickets of voters when they return for their timeslot.
 
-4. cd voter-pass
+## Installation
 
-5. npm i
-
-6. npm start
-
-7. project should open at http://localhost:8000
+## Usage

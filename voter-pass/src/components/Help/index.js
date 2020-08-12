@@ -27,6 +27,10 @@ const Help = () => {
             </p>
 
             <p>
+            VoterPass uses QR code tickets to assign voters to a timeslot for them to return to later in the day. It accomplishes this by providing a Timeslot Table to keep track of timeslots, a Timer to gather supplemental data, and a means to generate and scan QR codes.
+            </p>
+
+            <p>
                The basic workflow of VoterPass is as follows:
             </p>
 
