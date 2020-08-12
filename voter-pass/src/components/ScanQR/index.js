@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import QrReader from 'react-qr-reader'
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
- 
+
 class ScanQR extends Component {
   state = {
     voterNum: '',
@@ -15,7 +15,7 @@ class ScanQR extends Component {
     timeSlots: this.props.location.state.timeSlots,
     availability: this.props.location.state.availability,
   }
- 
+
   handleScan = data => {
     if (data) {
 
@@ -36,7 +36,7 @@ class ScanQR extends Component {
           localStorage.setItem('update',JSON.stringify('true'));
         }
       }
-    
+
       var str = data;
       var n = str.lastIndexOf(' ');
       var votNum = str.substring((n + 1),(n + 15));
@@ -70,7 +70,7 @@ class ScanQR extends Component {
 
       var upd = 0;
 
-      for (let i = 0; i < myTimeslots.length; i++) 
+      for (let i = 0; i < myTimeslots.length; i++)
       {
         if (myTimeslots[i] === Time2)
         {
@@ -90,7 +90,7 @@ class ScanQR extends Component {
               valid: 'Ticket Already Scanned!'
             })
           }
-          
+
           localStorage.setItem('Tickets Scanned', JSON.stringify(ticketsScanned));
           this.setState({
             voterNum: votNum,
@@ -143,11 +143,11 @@ class ScanQR extends Component {
           onError={this.handleError}
           onScan={this.handleScan}
           style={{ width: '100%' }}
-          
+
         />
           </div>
         </div>
-        
+
       </div>
     )
   }
