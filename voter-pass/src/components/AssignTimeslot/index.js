@@ -105,6 +105,14 @@ class AssignTimeslot extends Component {
 
   }
 
+  verify = () =>{
+    for (let i = 0; i < this.props.availability.length; i++) {
+      if (this.props.availability[i] > 0)
+        return true;
+    }
+    return false;   
+  }
+
   render() {
     return (
       <div className="assignT">
@@ -127,7 +135,7 @@ class AssignTimeslot extends Component {
               expTime: this.state.expTime,
               voterNum: this.state.voterNum
             }
-          }}>{this.state.expTime > 0 &&
+          }}>{this.verify() > 0 &&
             <Button variant="success" onClick={this.updateAvailability}> Confirm </Button>}
           </Link>}
         </div>
