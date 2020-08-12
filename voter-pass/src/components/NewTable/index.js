@@ -79,7 +79,6 @@ class NewTable extends Component{
   handleSubmit = (event) => {
 
    if (this.validate()) {
-     //alert("A new table was created");
      this.setState({times:[]});
      this.setState({available:[]});
      localStorage.removeItem('timeslots');
@@ -143,8 +142,18 @@ class NewTable extends Component{
       else
         this.state.times.push(curHour + ':' + curMin + cur);
     }
+
+    var a = new Array(this.state.times.length);
+
+    for(let i = 0; i < this.state.times.length; i++)
+    {
+      a[i] = true;
+    }
+
     localStorage.setItem('timeslots', JSON.stringify(this.state.times));
     localStorage.setItem('availability', JSON.stringify(this.state.available));
+    localStorage.setItem('tickets', JSON.stringify(this.state.available));
+    localStorage.setItem('available', JSON.stringify(a));
 
     console.log(this.state.times);
     console.log(this.state.available);

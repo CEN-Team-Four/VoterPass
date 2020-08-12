@@ -96,8 +96,14 @@ render(){
                 <Link to="/new-time-table">
                     <Button variant="dark"> New Table </Button>
                 </Link>
-                <Link to="/scan-code">
-                    <Button variant="dark"> Scan QR Code </Button>
+                <Link to={{
+            pathname: '/scan-code',
+            state: {
+              timeSlots: this.state.timeslots,
+              availability: this.state.availability
+            }
+          }}>
+                    <Button variant="dark" timeSlots={this.state.timeslots}> Scan QR Code </Button>
                 </Link>               
             </div>
             <div className = 'assign-container'>
