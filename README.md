@@ -14,6 +14,24 @@ The basic workflow of VoterPass is as follows:
 4. Process the QR code tickets of voters when they return for their timeslot.
 
 ## Installation
+1. Verify that Node.js is installed or install Node.js.
+2. Download the repository by cloning or forking.
+3. Change into the VoterPass directory.
+```
+cd VoterPass
+```
+4. Change into the voter-pass directory.
+```
+cd voter-pass
+```
+5. Install the application's dependencies using Node.js.
+```
+npm install
+```
+6. Run the application.
+```
+npm start
+```
 
 ## Usage
 This section will cover how to use and navigate the VoterPass application.
