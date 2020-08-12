@@ -64,13 +64,6 @@ class ScanQR extends Component {
       ExpTime = ExpTime.replace('Expiration Time:','Expiration Time: ');
       votNum = votNum.replace('Voter:','Voter: ');
 
-      this.setState({
-        voterNum: votNum,
-        expTime: ExpTime,
-        time: Time,
-        date: Date
-      })
-
       votNum2 = parseInt(votNum2);
 
       var myTimeslots = this.state.timeSlots;
@@ -99,13 +92,23 @@ class ScanQR extends Component {
           }
           
           localStorage.setItem('Tickets Scanned', JSON.stringify(ticketsScanned));
+          this.setState({
+            voterNum: votNum,
+            expTime: ExpTime,
+            time: Time,
+            date: Date
+          })
         }
       }
 
       if (upd === 0)
       {
         this.setState({
-          valid: 'This ticket is invalid!'
+          valid: 'This ticket is invalid!',
+          voterNum: '',
+          expTime: '',
+          time: '',
+          date: ''
         })
       }
     }
@@ -126,8 +129,6 @@ class ScanQR extends Component {
             <h2>{this.state.date}</h2>
             <h2>{this.state.time}</h2>
             <h2>{this.state.expTime}</h2>
-            <h2>{this.state.voterNum}</h2>
-            <h2>{this.state.temp}</h2>
             <h2>{this.state.valid2}</h2>
             </div>
             <div class="row" className="cen">
