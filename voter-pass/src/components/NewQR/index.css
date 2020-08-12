@@ -2,7 +2,10 @@
     align-content: center;
     text-align: center;
     border: 2px solid #dee2e6;
-    margin: 20px 200px 20px 200px;
+    border-radius: 5px;
+    margin: 20px 300px 20px 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .btn {

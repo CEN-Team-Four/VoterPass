@@ -1,5 +1,6 @@
 .list {
     border: 2px solid #dee2e6;
+    border-radius: 5px;
     height: 100%;
     grid-area: time-list;
 

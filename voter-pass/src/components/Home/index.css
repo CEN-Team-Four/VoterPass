@@ -1,6 +1,6 @@
 .home-wrapper {
     height: 100%;
-    width: 97%;
+    width: 96%;
     max-height: 100%;
     display: grid;
     grid-template-columns: 40% auto;
@@ -21,6 +21,7 @@
     border: 2px solid #dee2e6;
     border-left: 0;
     border-bottom: 0;
+    border-top-right-radius: 5px;
     width: 100%;
 }
 
@@ -31,6 +32,8 @@
     overflow-y: auto;
     scroll-behavior: smooth;
     border: 2px solid #dee2e6;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .assign-container {
@@ -45,4 +48,8 @@
 .style-1 {
     display: flex;
     justify-content: space-evenly;
+}
+
+.assignT {
+    border-bottom-right-radius: 5px;
 }
