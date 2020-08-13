@@ -140,7 +140,7 @@ class AssignTimeslot extends Component {
                 expTime: this.state.expTime,
                 voterNum: this.state.voterNum
               }
-            }}>{this.state.expTime > 0 &&
+            }}>{this.verify() &&
               <Button size="lg" variant="success" onClick={this.updateAvailability}> Confirm </Button>}
             </Link>}
           </Col>
