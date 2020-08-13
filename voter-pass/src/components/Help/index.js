@@ -2,6 +2,14 @@ import React from 'react';
 
 import './index.css';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Image from 'react-bootstrap/Image';
+
+import navBar from './images/NavBar.PNG';
+import timer from './images/Timer2.PNG';
+import scanQR from './images/ScanQR.PNG';
+import newQR from './images/NewQR.PNG';
+import newTable from './images/NewTable2.PNG';
+//import assignQR from './images/AssignQR.PNG';
 
 const Help = () => {
    return (
@@ -56,6 +64,8 @@ const Help = () => {
                These three pages can be accessed from the navigation bar in the top-right corner.
             </p>
 
+            <Image src={navBar} fluid />
+
             <p>
                The Timeslot Table acts as the home page for the VoterPass application. From this page, you can access such features as:
             </p>
@@ -83,6 +93,8 @@ const Help = () => {
                <li>Press the Start button on the Timer and repeat steps 2-5 until enough data has been gathered to get a good Average Time Between Voters.</li>
             </ol>
 
+            <Image src={timer} fluid />
+
             <h3 id="generating-a-new-table">Generating a Timeslot Table</h3>
             <p>
                The Timeslot Table displays the list of timeslots and their corresponding availabilities.
@@ -100,6 +112,8 @@ const Help = () => {
                <li>Click on the Submit button to generate a new Timeslot Table with your given parameters.</li>
             </ol>
 
+            <Image src={newTable} fluid />
+
             <h3 id="assigning-a-timeslot">Assigning a Timeslot</h3>
             <p>
                Once a Timeslot Table is generated, you can assign timeslots from the table to voters.
@@ -111,7 +125,9 @@ const Help = () => {
 
             <ol>
                <li>On the Timeslot Table page, select the time of the timeslot you wish to assign from the available options in the dropdown menu.</li>
+               {/*<Image src={assignQR} fluid />*/}
                <li>Click the Confirm button. This will redirect you to the inLine Ticket with the QR code that corresponds to the timeslot you just assigned.</li>
+               <Image src={newQR} fluid />
                <li>On the inLine Ticket page, click on the Print button to print the ticket or to save it as a PDF. Alternatively, you can have the voter take a picture of their ticket.</li>
                <li>Click on the Return to Table button to return to the Timeslot Table page.</li>
             </ol>
@@ -131,6 +147,8 @@ const Help = () => {
                <li>If the ticket is valid, a confirmation message will appear. If the ticket is not valid, an error message will display.</li>
                <li>Once a ticket has been verified, click on the Return to Table button to return to the Timeslot Table page.</li>
             </ol>
+
+            <Image src={scanQR} fluid />
 
          </div>
       </div>
