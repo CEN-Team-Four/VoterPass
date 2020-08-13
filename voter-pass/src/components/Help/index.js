@@ -9,6 +9,7 @@ import timer from './images/Timer2.PNG';
 import scanQR from './images/ScanQR.PNG';
 import newQR from './images/NewQR.PNG';
 import newTable from './images/NewTable2.PNG';
+import assignT from './images/AssignT.png';
 //import assignQR from './images/AssignQR.PNG';
 
 const Help = () => {
@@ -94,7 +95,8 @@ const Help = () => {
             </ol>
 
             <Image src={timer} fluid />
-
+            <br></br>
+            <br></br>
             <h3 id="generating-a-new-table">Generating a Timeslot Table</h3>
             <p>
                The Timeslot Table displays the list of timeslots and their corresponding availabilities.
@@ -113,7 +115,8 @@ const Help = () => {
             </ol>
 
             <Image src={newTable} fluid />
-
+            <br></br>
+            <br></br>
             <h3 id="assigning-a-timeslot">Assigning a Timeslot</h3>
             <p>
                Once a Timeslot Table is generated, you can assign timeslots from the table to voters.
@@ -125,7 +128,7 @@ const Help = () => {
 
             <ol>
                <li>On the Timeslot Table page, select the time of the timeslot you wish to assign from the available options in the dropdown menu.</li>
-               {/*<Image src={assignQR} fluid />*/}
+               <Image src={assignT} fluid />
                <li>Click the Confirm button. This will redirect you to the inLine Ticket with the QR code that corresponds to the timeslot you just assigned.</li>
                <Image src={newQR} fluid />
                <li>On the inLine Ticket page, click on the Print button to print the ticket or to save it as a PDF. Alternatively, you can have the voter take a picture of their ticket.</li>

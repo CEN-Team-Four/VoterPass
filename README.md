@@ -87,7 +87,7 @@ The procedure for assigning a timeslot to a voter is as follows:
 
 1. On the Timeslot Table page, select the time of the timeslot you wish to assign from the available options in the dropdown menu.
 2. Click the Confirm button. This will redirect you to the inLine Ticket with the QR code that corresponds to the timeslot you just assigned.
-![assignT](voter-pass\src\img\NewTable2.PNG)
+![assignT](voter-pass\src\img\AssignT.png)
 1. On the inLine Ticket page, click on the Print button to print the ticket or to save it as a PDF. Alternatively, you can have the voter take a picture of their ticket.
 2. Click on the Return to Table button to return to the Timeslot Table page.
 
