@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom';
 
 import './index.css';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 class NewTable extends Component{
   constructor(props) {
@@ -18,9 +19,25 @@ class NewTable extends Component{
     times: [],
     available: [],
     average: this.initializeAve(),
-    submitted: false
+    submitted: false,
+    showSubmitModal: false,
+    showValidateModal: false,
   };
 }
+
+  openSubmitModal = () => {
+    this.setState({showSubmitModal: true})
+  }
+  closeSubmitModal = () => {
+    this.setState({showSubmitModal: false})
+  }
+
+  openValidateModal = () => {
+    this.setState({showValidateModal: true})
+  }
+  closeValidateModal = () => {
+    this.setState({showValidateModal: false})
+  }
 
   handleChange = event => {
     this.setState({
@@ -57,13 +74,12 @@ class NewTable extends Component{
 
   validate = () => {
     if (!this.state.startTime || !this.state.endTime || !this.state.duration || !this.state.numBooths) {
-      alert('Please fill out the entire form');
       return false;
     }
     else {
-
+      return true;
     }
-    return true;
+    
   }
 
   handleChange2 = (event) => {
@@ -76,9 +92,8 @@ class NewTable extends Component{
     localStorage.setItem('av',JSON.stringify(event.target.value))
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = () => {
 
-   if (this.validate()) {
      this.setState({times:[]});
      this.setState({available:[]});
      localStorage.removeItem('timeslots');
@@ -159,17 +174,56 @@ class NewTable extends Component{
     console.log(this.state.available);
 
     this.setState({submitted: true});
-    event.preventDefault();
-  }
-  event.preventDefault();
+ 
  };
 
   render() {
     return(
       <div className="newtable">
+        {this.state.showValidateModal &&
+           <Modal show={this.state.showValidateModal} onHide={this.closeValidateModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>Create New Table</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Please fill out the entire form.</Modal.Body>
+            <Modal.Footer>
+             
+              <Button type="button" variant="primary" onClick={this.closeValidateModal}>
+                OK
+              </Button>
+            </Modal.Footer>
+           </Modal>
+          }
+          {this.state.showSubmitModal &&
+           <Modal show={this.state.showSubmitModal} onHide={this.closeSubmitModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>Create New Table</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Are you sure you want to create a new table? This will replace the existing table.</Modal.Body>
+            <Modal.Footer>
+             
+              <Button type="button" variant="primary" onClick={this.closeSubmitModal}>
+                Cancel 
+              </Button>
+              <Button type="button" variant="secondary" onClick={this.handleSubmit}>
+                Create New Table 
+              </Button>
+              
+            </Modal.Footer>
+           </Modal>
+          }
         <div className="form-wrapper">
           <h1>Create New Table</h1>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={(e) => {
+            if(!this.validate()) {
+              this.openValidateModal(); 
+              e.preventDefault();
+            }
+            else{
+              this.openSubmitModal();
+              e.preventDefault();
+            }
+            }}>
           {}
 
           <br></br>
