@@ -2,14 +2,10 @@
   width: 100vw;
 }
 
-/*.navigation-bar {   
-    position: fixed;
-    background-color: black;   
-    width: 100%;
-    height: 12%;
-    text-align: center;
-    font-size: calc(10px + 2vmin);
-    color: white; 
-    top: 0;
-    left: 0;
-}*/
+.navigation-text {
+  color: rgba(255, 255, 255, .75) !important;
+}
+
+.navigation-text:hover {
+  color: rgba(255, 255, 255, 1) !important;
+}

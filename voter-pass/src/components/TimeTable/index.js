@@ -33,7 +33,8 @@ function TimeTable(props) {
             </tbody>           
         </Table> 
         <div className = 'empty-msg'>
-            {tableRows.length === 0 && <p>Navigate to the new table page to create this table data</p>}
+            {tableRows.length === 0 && <p>Click on the New Table button to generate a table here.
+                <br></br>Or, click on the Help and Instructions link above to learn more about this application.</p>}
         </div>
         </div>
     );

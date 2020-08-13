@@ -3,13 +3,20 @@
     max-height: 100%;
 }
 
+.table-head {
+    font-size: 18px;
+}
+
 .table-body {
     max-height: 100%;
 }
 
 .empty-msg{
     text-align: center;
+    margin: 30% auto;
+    width: 95%;
 }
+
 
 .table-wrapper{
     height: 100%;

@@ -37,6 +37,9 @@ body {
 .page-display {
   height: 85vh;
   padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+
 }
 
 .logo{

@@ -58,10 +58,6 @@ class AssignTimeslot extends Component {
     {
       minuteInt = minuteInt - 60;
       hourInt = hourInt + 1;
-      if (minuteInt < 10)
-      {
-          minuteInt = "0" + minuteInt;
-      }
       if (hourInt === 12)
       {
         if (merid === "AM")
@@ -78,6 +74,12 @@ class AssignTimeslot extends Component {
         hourInt = hourInt - 12;
       }
     }
+
+    if (minuteInt < 10)
+    {
+        minuteInt = "0" + minuteInt;
+    }
+
     localStorage.setItem('Expiration Time', JSON.stringify(hourInt + ":" + minuteInt + merid))
   }
 
@@ -95,7 +97,7 @@ class AssignTimeslot extends Component {
 
       let temp = JSON.parse(localStorage.getItem('availability'))
       temp[a] -= 1;
-       
+
       var temp2 = parseInt(JSON.parse(localStorage.getItem('av'))) - temp[a];
 
       localStorage.setItem('voterNum', JSON.stringify(temp2));
@@ -104,6 +106,14 @@ class AssignTimeslot extends Component {
 
     this.myFunc();
 
+  }
+
+  verify = () =>{
+    for (let i = 0; i < this.props.availability.length; i++) {
+      if (this.props.availability[i] > 0)
+        return true;
+    }
+    return false;
   }
 
   render() {

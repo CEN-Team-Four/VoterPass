@@ -158,17 +158,26 @@ class NewTable extends Component{
         this.state.times.push(curHour + ':' + curMin + cur);
     }
 
-    var a = new Array(this.state.times.length);
+    var avNum = this.state.available[0];
 
-    for(let i = 0; i < this.state.times.length; i++)
+    var ticketArray = new Array(parseInt(this.state.times.length));
+
+    for(let i = 0; i < ticketArray.length; i++)
     {
-      a[i] = true;
+      ticketArray[i] = new Array(parseInt(avNum));
+    }
+
+    for (let i = 0; i < avNum; i++)
+    {
+      for (let j = 0; j < ticketArray.length; j++)
+      {
+        ticketArray[j][i] = null;
+      }
     }
 
     localStorage.setItem('timeslots', JSON.stringify(this.state.times));
     localStorage.setItem('availability', JSON.stringify(this.state.available));
-    localStorage.setItem('tickets', JSON.stringify(this.state.available));
-    localStorage.setItem('available', JSON.stringify(a));
+    localStorage.setItem('Tickets Scanned', JSON.stringify(ticketArray))
 
     console.log(this.state.times);
     console.log(this.state.available);
@@ -247,7 +256,7 @@ class NewTable extends Component{
           <br></br>
           <label>Expiration Time: </label>
           <input
-            placeholder= 'expiration time'
+            placeholder= 'minutes'
             type = 'number'
             min = '1'
             value={this.state.expTime}
@@ -273,8 +282,8 @@ class NewTable extends Component{
             onChange={this.handleChange3}
           />
 
-          <Button variant="success" type="submit">Submit</Button>
-          <Button variant="dark" href="/">Return to Table</Button>
+          <Button className="new-table-submit" variant="success" type="submit">Submit</Button>
+          <Button variant="secondary" href="/">Return to Table</Button>
           {this.state.submitted === true &&  (
               <Redirect to="/" />
           )}

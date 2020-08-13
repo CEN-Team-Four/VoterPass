@@ -9,6 +9,8 @@ const Help = () => {
          <ListGroup className="help-navigation-links">
             <ListGroup.Item className="light-link" action variant="light" href="#help-and-instructions" active>Help and Instructions</ListGroup.Item>
             <ListGroup.Item className="dark-link" action variant="dark" href="#introduction" active>Introduction</ListGroup.Item>
+            <ListGroup.Item className="light-link" action variant="dark" href="#navigation" active>Navigation</ListGroup.Item>
+            <ListGroup.Item className="dark-link" action variant="dark" href="#using-the-timer" active>Using the Timer</ListGroup.Item>
             <ListGroup.Item className="light-link" action variant="light" href="#generating-a-new-table" active>Generating a Timeslot Table</ListGroup.Item>
             <ListGroup.Item className="dark-link" action variant="light" href="#assigning-a-timeslot" active>Assigning a Timeslot</ListGroup.Item>
             <ListGroup.Item className="light-link" action variant="dark" href="#scanning-a-qr-code" active>Scanning a QR Code</ListGroup.Item>
@@ -17,11 +19,15 @@ const Help = () => {
 
          <div className="help-feed">
             <h1 id="help-and-instructions">Help and Instructions</h1>
-            <p>These are the instructions for this application.</p>
+            <p>These are the instructions for the VoterPass application.</p>
 
-            <h3 id="introduction">How to Use The Timer</h3>
+            <h3 id="introduction">Introduction</h3>
             <p>
                VoterPass is a virtual queuing system for polling locations. Its purpose is to allow election officials to convert physical lines of voters into virtual lines, so as to encourage social distancing and other safety protocols that help prevent the spread of COVID-19.
+            </p>
+
+            <p>
+            VoterPass uses QR code tickets to assign voters to a timeslot for them to return to later in the day. It accomplishes this by providing a Timeslot Table to keep track of timeslots, a Timer to gather supplemental data, and a means to generate and scan QR codes.
             </p>
 
             <p>
@@ -29,19 +35,61 @@ const Help = () => {
             </p>
 
             <ol>
-               <li>Use the Timer feature to gather data on how long it takes for voters to vote, to assist in executing the next step.</li>
-               <li>Generate a Timeslot Table that partitions the polling location’s voting hours into timeslots that can be assigned to voters.</li>
+               <li>Use the Timer feature to gather data on how long it takes for voters to vote.</li>
+               <li>Generate a Timeslot Table that partitions the polling location’s voting hours into timeslots that can be assigned to voters, using the data gathered from the previous step.</li>
                <li>Assign timeslots from the Timeslot Table to voters in the order of the physical line at the polling location, using QR code tickets.</li>
                <li>Process the QR code tickets of voters when they return for their timeslot.</li>
             </ol>
 
-            <h3 id="generating-a-new-table">Generating a New Timeslot Table</h3>
+            <h3 id="navigation">Navigation</h3>
             <p>
-            The Timeslot Table displays the list of timeslots and their corresponding availabilities.
+               The VoterPass application consists of three main pages:
+            </p>
+
+            <ol>
+               <li>Timeslot Table (Home Page)</li>
+               <li>Timer</li>
+               <li>Help and Instructions</li>
+            </ol>
+
+            <p>
+               These three pages can be accessed from the navigation bar in the top-right corner.
             </p>
 
             <p>
-            The procedure for generating a new Timeslot Table is as follows:
+               The Timeslot Table acts as the home page for the VoterPass application. From this page, you can access such features as:
+            </p>
+
+            <ol>
+               <li>Generating a new Timeslot Table</li>
+               <li>Assigning a timeslot</li>
+               <li>Scanning a QR code ticket</li>
+            </ol>
+
+            <h3 id="using-the-timer">Using the Timer</h3>
+            <p>
+               In order to gather data that will assist in determining the duration of timeslots for the Timeslot Table, we recommend using the built-in Timer. The Timer page consists of three features: the Timer, the Measured Time Between Voters list, and the Average Time Between Voters display.
+            </p>
+
+            <p>
+               The best protocol when using the Timer is to measure the duration of time that passes between voters exiting the voting booths. The procedure for using the Timer is as follows:
+            </p>
+
+            <ol>
+               <li>When the first voter leaves the voting booths, press Start on the Timer.</li>
+               <li>When the next voter leaves the voting booths, press Stop on the Timer.</li>
+               <li>Click on the Add to List button to add the recorded time to the Measured Time Between Voters list.</li>
+               <li>Press the Reset button on the Timer.</li>
+               <li>Press the Start button on the Timer and repeat steps 2-5 until enough data has been gathered to get a good Average Time Between Voters.</li>
+            </ol>
+
+            <h3 id="generating-a-new-table">Generating a Timeslot Table</h3>
+            <p>
+               The Timeslot Table displays the list of timeslots and their corresponding availabilities.
+            </p>
+
+            <p>
+               The procedure for generating a new Timeslot Table is as follows:
             </p>
 
             <ol>
@@ -54,11 +102,11 @@ const Help = () => {
 
             <h3 id="assigning-a-timeslot">Assigning a Timeslot</h3>
             <p>
-            Once a Timeslot Table is generated, you can assign timeslots from the table to voters.
+               Once a Timeslot Table is generated, you can assign timeslots from the table to voters.
             </p>
 
             <p>
-            The procedure for assigning a timeslot to a voter is as follows:
+               The procedure for assigning a timeslot to a voter is as follows:
             </p>
 
             <ol>
@@ -70,11 +118,11 @@ const Help = () => {
 
             <h3 id="scanning-a-qr-code">Scanning a QR Code</h3>
             <p>
-            When a voter returns for their timeslot, you can scan the QR code on their inLine Ticket to verify the validity of the ticket.
+               When a voter returns for their timeslot, you can scan the QR code on their inLine Ticket to verify the validity of the ticket.
             </p>
 
             <p>
-            The procedure for scanning a QR code is as follows:
+               The procedure for scanning a QR code is as follows:
             </p>
 
             <ol>
