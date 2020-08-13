@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './index.css';
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -117,29 +118,32 @@ class AssignTimeslot extends Component {
 
   render() {
     return (
-      <div className="assignT">
+      <div >
         <h1>Assign Timeslot</h1>
-        <div className="style-1">
-          <h3>Time:&nbsp;</h3>
-          <Dropdown
-            options={this.props.timeSlots.filter((item, index) => {
-              return this.props.availability[index] > 0;
-            })}
-            onChange={this.handleChange}
-            value={this.state.selected}
-          />
-        </div>
-        <div className="style-1">
-          {<Link to={{
-            pathname: '/generateqr',
-            state: {
-              timSlot: this.state.selected,
-              expTime: this.state.expTime,
-              voterNum: this.state.voterNum
-            }
-          }}>{this.verify() > 0 &&
-            <Button variant="success" onClick={this.updateAvailability}> Confirm </Button>}
-          </Link>}
+        <div className = 'row'>
+          <Col className="style-1">
+            <h3 className="time">Time:&nbsp; &nbsp; &nbsp;</h3>
+            <Dropdown 
+              className="dropdown"
+              options={this.props.timeSlots.filter((item, index) => {
+                return this.props.availability[index] > 0;
+              })}
+              onChange={this.handleChange}
+              value={this.state.selected}
+            />
+          </Col>
+          <Col className="style-2" >
+            {<Link to={{
+              pathname: '/generateqr',
+              state: {
+                timSlot: this.state.selected,
+                expTime: this.state.expTime,
+                voterNum: this.state.voterNum
+              }
+            }}>{this.state.expTime > 0 &&
+              <Button size="lg" variant="success" onClick={this.updateAvailability}> Confirm </Button>}
+            </Link>}
+          </Col>
         </div>
       </div>
     );

@@ -89,26 +89,29 @@ class Home extends React.Component {
 render(){
     return (
        <div className = 'home-wrapper'>
+            <div className = 'row' style={{marginRight: "0px !important", marginLeft: "0px !important"}}>
+                <div className = 'col-sm-4 buttons-container'>
+                    <Link to="/new-time-table">
+                        <Button variant="dark"> New Table </Button>
+                    </Link>
+                    <Link to={{
+                        pathname: '/scan-code',
+                        state: {
+                        timeSlots: this.state.timeslots,
+                        availability: this.state.availability
+                        }
+                    }}>
+                        <Button variant="dark" timeSlots={this.state.timeslots}> Scan QR Code </Button>
+                    </Link>               
+                </div>
+                <div className = 'col-sm-8 assign-container'>
+                    <AssignTimeslot  timeSlots={this.state.timeslots} availability={this.state.availability} expTime={this.state.expTime} handler={this.handler}/>
+                </div> 
+            </div>
             <div className = 'time-table-container'>
                 <TimeTable timeslots = {this.state.timeslots} availability = {this.state.availability}></TimeTable>
             </div>
-            <div className = 'buttons-container'>
-                <Link to="/new-time-table">
-                    <Button variant="dark"> New Table </Button>
-                </Link>
-                <Link to={{
-            pathname: '/scan-code',
-            state: {
-              timeSlots: this.state.timeslots,
-              availability: this.state.availability
-            }
-          }}>
-                    <Button variant="dark" timeSlots={this.state.timeslots}> Scan QR Code </Button>
-                </Link>               
-            </div>
-            <div className = 'assign-container'>
-                <AssignTimeslot  timeSlots={this.state.timeslots} availability={this.state.availability} expTime={this.state.expTime} handler={this.handler}/>
-            </div> 
+            
        </div>
     );
 }
