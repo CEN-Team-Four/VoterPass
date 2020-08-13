@@ -11,9 +11,9 @@ const Navigation = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                 <Nav>
-                    <Nav.Link href="/">Timeslot Table</Nav.Link>
-                    <Nav.Link href="/timer">Timer</Nav.Link>
-                    <Nav.Link href="/help">Help and Instructions</Nav.Link>
+                    <Nav.Link className="navigation-text" href="/">Timeslot Table</Nav.Link>
+                    <Nav.Link className="navigation-text" href="/timer">Timer</Nav.Link>
+                    <Nav.Link className="navigation-text" href="/help">Help and Instructions</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
@@ -21,17 +21,3 @@ const Navigation = () => {
 }
 
 export default Navigation;
-
-/*
-            <div className="VoterPass">
-                <header className="navigation-bar">
-                    <h2>Voter Pass App </h2>
-
-                    <div className="navigation-links">
-                        <NavLink to="/">Timeslot Table </NavLink>
-                        <NavLink to="/timer">Timer</NavLink>
-                        <NavLink to="/help">Help and Instructions</NavLink>
-                    </div>
-                </header>
-            </div>
-*/

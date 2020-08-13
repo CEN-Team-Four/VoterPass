@@ -1,8 +1,7 @@
 .list {
     border: 2px solid #dee2e6;
-    height: 95%;
-    margin-top: 20px;
-
+    border-radius: 5px;
+    height: 100%;
     grid-area: time-list;
 
     overflow-y: scroll;
@@ -17,15 +16,11 @@
 
 .time-list-heading {
     border-top: 0;
+    font-size: 18px;
 }
 
-/*#list {
-    position: fixed;
-    border: 2px solid #dee2e6;
-    right: 2px;
-    top: 12%;
-    width: 39.8%;
-    height: 80%;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-}*/
+.empty-msg{
+    text-align: center;
+    margin: 30% auto;
+    width: 95%;
+}

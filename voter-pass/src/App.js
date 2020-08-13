@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
 import Navigation from './components/Navigation/';
@@ -10,7 +10,6 @@ import Error from './components/Error/';
 import NewTable from './components/NewTable';
 import ScanQR from './components/ScanQR';
 import NewQR from './components/NewQR';
-import PrintPage from './components/PrintPage';
 
 class App extends React.Component {
 
@@ -28,9 +27,12 @@ class App extends React.Component {
             <Route exact path="/new-time-table" component={NewTable}/>
             <Route exact path="/scan-code" component={ScanQR}/>
             <Route exact path="/generateqr" component={NewQR}/>
-            <Route exact path="/printpage" component={PrintPage}/>
 
-            <Route component={Error}/>
+            <Route component={Home}>
+              <Redirect to="" />
+            </Route>
+
+            <Route component={Error} />
           </Switch>
         </div>
       </BrowserRouter>    

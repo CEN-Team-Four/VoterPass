@@ -2,9 +2,32 @@
     align-content: center;
     text-align: center;
     border: 2px solid #dee2e6;
-    margin: 20px 200px 20px 200px;
+    border-radius: 5px;
+    margin: 20px 300px 20px 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .btn {
     margin: 5px;
+}
+
+.buttons{
+    text-align: center;
+}
+
+@media print {
+    .qrPos {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
+        border: white;
+    }
 }

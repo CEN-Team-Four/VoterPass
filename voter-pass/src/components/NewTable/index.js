@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import {Redirect} from 'react-router-dom';
+
 import './index.css';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import Modal from 'react-bootstrap/Modal';
 
 class NewTable extends Component{
   constructor(props) {
@@ -10,18 +12,32 @@ class NewTable extends Component{
     date: new Date().toLocaleString(),
     Location: '',
     startTime: '',
-    startHour: '',
-    startMin: '',
     endTime: '',
-    endHour: '',
-    endMin: '',
-    cur: '',
+    expTime: '',
     numBooths:'',
     duration:'',
     times: [],
-    available: []
+    available: [],
+    average: this.initializeAve(),
+    submitted: false,
+    showSubmitModal: false,
+    showValidateModal: false,
   };
 }
+
+  openSubmitModal = () => {
+    this.setState({showSubmitModal: true})
+  }
+  closeSubmitModal = () => {
+    this.setState({showSubmitModal: false})
+  }
+
+  openValidateModal = () => {
+    this.setState({showValidateModal: true})
+  }
+  closeValidateModal = () => {
+    this.setState({showValidateModal: false})
+  }
 
   handleChange = event => {
     this.setState({
@@ -29,166 +45,248 @@ class NewTable extends Component{
   });
 };
 
+  initializeAve = () =>{
+    let test = 'test', myBool;
+    try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        myBool = true;
+    } catch(e) {
+        myBool = false;
+    }
+    if(myBool === false){
+        alert('Please enable cookies.')
+        return 'N/A';
+    }
+    else{
+        if(!(localStorage.getItem('average') === null)){
+            let items = JSON.parse(localStorage.getItem('average'))
+            let seconds = ("0" + (Math.floor(items / 1000) % 60)).slice(-2);
+            let minutes = ("0" + (Math.floor(items / 60000) % 60)).slice(-2);
+            let str = minutes + ':' + seconds
+            return str;
+        }
+        else{
+            return 'N/A';
+        }
+    }
+  }
+
   validate = () => {
-    if (!this.state.Location || !this.state.startTime || !this.state.endTime || !this.state.duration || !this.state.numBooths) {
-      alert('Please fill out the entire form');
+    if (!this.state.startTime || !this.state.endTime || !this.state.duration || !this.state.numBooths) {
       return false;
     }
     else {
-
+      return true;
     }
-    return true;
+    
   }
 
-  handleSubmit = (event) => {
+  handleChange2 = (event) => {
+    this.setState({ expTime: event.target.value })
+    localStorage.setItem('exp',JSON.stringify(event.target.value))
+  }
 
-   if (this.validate()) {
-     alert("A new table was created");
+  handleChange3 = (event) => {
+    this.setState({ numBooths: event.target.value })
+    localStorage.setItem('av',JSON.stringify(event.target.value))
+  }
+
+  handleSubmit = () => {
+
      this.setState({times:[]});
      this.setState({available:[]});
      localStorage.removeItem('timeslots');
      localStorage.removeItem('availability');
-     var curHour = 0;
-     if(this.state.startTime.includes('PM'))
-     {
-       this.state.cur = 'PM';
-       this.state.startTime.replace('PM','');
-       let s = this.state.startTime.split(':',2);
-       this.state.startHour = parseInt(s[0]);
-       curHour = this.state.startHour;
-       if (this.state.startHour < 12)
-          this.state.startHour += 12;
-       this.state.startMin = parseInt(s[1]);
-     }
-     else
-     {
-       this.state.cur = 'AM';
-       this.state.startTime.replace('AM','');
-       let s = this.state.startTime.split(':',2);
-       this.state.startHour = parseInt(s[0]);
-       curHour = this.state.startHour;
-       if (this.state.startHour === 12)
-          this.state.startHour -= 12;
-       this.state.startMin = parseInt(s[1]);
-     }
-     if(this.state.endTime.includes('PM'))
-     {
-       this.state.endTime.replace('PM','');
-       let s = this.state.endTime.split(':',2);
-       this.state.endHour = parseInt(s[0]);
-       if (this.state.endHour < 12)
-          this.state.endHour += 12;
-       this.state.endMin = parseInt(s[1]);
-     }
-     else
-     {
-       this.state.endTime.replace('AM','');
-       let s = this.state.endTime.split(':',2);
-       //console.log(s[0]);
-       this.state.endHour = parseInt(s[0]);
-       if (this.state.endHour === 12)
-          this.state.endHour -= 12;
-       this.state.endMin = parseInt(s[1]);
-     }
-     let hrs = this.state.endHour - this.state.startHour;
+     let s = this.state.startTime.split(':',2);
+     let ss = this.state.endTime.split(':',2);
+     let startHour = parseInt(s[0]);
+     let startMin = parseInt(s[1]);
+     let endHour = parseInt(ss[0]);
+     let endMin = parseInt(ss[1]);
+     let cur = '';
+     let hrs = endHour - startHour;
      if (hrs < 0) {
         hrs = hrs + 24;
     }
-    let mins = this.state.endMin - this.state.startMin;
+    let mins = endMin - startMin;
     if (mins < 0) {
        mins = mins + 60;
        hrs = hrs - 1;
    }
    let total = 60 * hrs + mins;
    let numSlots = total/this.state.duration + 1
-    let curMin = this.state.startMin;
-    console.log(this.state.numBooths);
+   let curMin = startMin;
+   let curHour = startHour;
 
+   if (curHour >= 12) {
+      cur = 'PM';
+      if (curHour > 12)
+        curHour -= 12;
+    }
+    else {
+      cur = 'AM';
+      if (curHour === 0)
+        curHour += 12;
+    }
     if (curMin < 10)
-      this.state.times.push(curHour + ':0' + curMin + this.state.cur);
+      this.state.times.push(curHour + ':0' + curMin + cur);
     else
-      this.state.times.push(curHour + ':' + curMin + this.state.cur);
+      this.state.times.push(curHour + ':' + curMin + cur);
 
     this.state.available.push(this.state.numBooths);
-    this.state.times.push()
+    var prevHour = curHour;
     for (let i = 0; i < numSlots - 1; i++) {
       this.state.available.push(this.state.numBooths);
       curMin += parseInt(this.state.duration);
       if (curMin >= 60) {
         curMin -= 60;
         curHour++;
-        if (curHour === 12) {
-          if (this.state.cur === 'AM')
-            this.state.cur = 'PM';
+        if (curHour === 12 && prevHour !== 12) {
+          if (cur === 'AM')
+            cur = 'PM';
           else
-            this.state.cur = 'AM';
+            cur = 'AM';
         }
         if (curHour > 12)
           curHour -= 12;
+        prevHour = curHour;
       }
       if (curMin < 10)
-        this.state.times.push(curHour + ':0' + curMin + this.state.cur);
+        this.state.times.push(curHour + ':0' + curMin + cur);
       else
-        this.state.times.push(curHour + ':' + curMin + this.state.cur);
+        this.state.times.push(curHour + ':' + curMin + cur);
     }
+
+    var avNum = this.state.available[0];
+
+    var ticketArray = new Array(parseInt(this.state.times.length));
+
+    for(let i = 0; i < ticketArray.length; i++)
+    {
+      ticketArray[i] = new Array(parseInt(avNum));
+    }
+
+    for (let i = 0; i < avNum; i++)
+    {
+      for (let j = 0; j < ticketArray.length; j++)
+      {
+        ticketArray[j][i] = null;
+      }
+    }
+
     localStorage.setItem('timeslots', JSON.stringify(this.state.times));
     localStorage.setItem('availability', JSON.stringify(this.state.available));
+    localStorage.setItem('Tickets Scanned', JSON.stringify(ticketArray))
 
     console.log(this.state.times);
     console.log(this.state.available);
 
-    event.preventDefault();
-  }
-  event.preventDefault();
+    this.setState({submitted: true});
+ 
  };
 
   render() {
     return(
       <div className="newtable">
+        {this.state.showValidateModal &&
+           <Modal show={this.state.showValidateModal} onHide={this.closeValidateModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>Create New Table</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Please fill out the entire form.</Modal.Body>
+            <Modal.Footer>
+             
+              <Button type="button" variant="primary" onClick={this.closeValidateModal}>
+                OK
+              </Button>
+            </Modal.Footer>
+           </Modal>
+          }
+          {this.state.showSubmitModal &&
+           <Modal show={this.state.showSubmitModal} onHide={this.closeSubmitModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>Create New Table</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Are you sure you want to create a new table? This will replace the existing table.</Modal.Body>
+            <Modal.Footer>
+             
+              <Button type="button" variant="primary" onClick={this.closeSubmitModal}>
+                Cancel 
+              </Button>
+              <Button type="button" variant="secondary" onClick={this.handleSubmit}>
+                Create New Table 
+              </Button>
+              
+            </Modal.Footer>
+           </Modal>
+          }
         <div className="form-wrapper">
           <h1>Create New Table</h1>
-          <form onSubmit={this.handleSubmit}>
-          <div className="loc">
-          <label>Enter Date: </label>
-          <input
-            type = 'text'
-            value={this.state.Location}
-            onChange={event => this.setState({ Location: event.target.value })}
-          />
-          </div>
+          <form onSubmit={(e) => {
+            if(!this.validate()) {
+              this.openValidateModal(); 
+              e.preventDefault();
+            }
+            else{
+              this.openSubmitModal();
+              e.preventDefault();
+            }
+            }}>
+          {}
+
+          <br></br>
           <div className="textbox">
           <label htmlFor="start">Start Time: </label>
           <input
-            type = 'text'
-            placeholder = 'eg. 8:00AM'
+            type = 'time'
             value={this.state.startTime}
             onChange={event => this.setState({ startTime: event.target.value })}
           />
 
+          <br></br>
           <label htmlFor="end">End Time: </label>
           <input
-            type = 'text'
+            type = 'time'
             value={this.state.endTime}
             onChange={event => this.setState({ endTime: event.target.value })}
           />
 
-          <label>Duration per timeslot: </label>
+
+          <br></br>
+          <label>Expiration Time: </label>
           <input
-            type = 'text'
-            placeholder = 'Minutes'
+            placeholder= 'minutes'
+            type = 'number'
+            min = '1'
+            value={this.state.expTime}
+            onChange={this.handleChange2}
+          />
+
+          <br></br>
+          <label>Duration per Timeslot: </label>
+          <input
+            placeholder= 'minutes'
+            type = 'number'
+            min = '1'
             value={this.state.duration}
             onChange={event => this.setState({ duration: event.target.value })}
-          />
+          /> <p>average: {this.state.average}</p>
 
-          <label>Availability: </label>
+          <label>Availability per Timeslot: </label>
           <input
-            type = 'text'
+            placeholder= 'no. of voters'
+            type = 'number'
+            min = '1'
             value={this.state.numBooths}
-            onChange={event => this.setState({ numBooths: event.target.value })}
+            onChange={this.handleChange3}
           />
 
-          <Button variant="success" type="submit">Submit</Button>
-          <Button variant="danger" href="/">Cancel</Button>
+          <Button className="new-table-submit" variant="success" type="submit">Submit</Button>
+          <Button variant="secondary" href="/">Return to Table</Button>
+          {this.state.submitted === true &&  (
+              <Redirect to="/" />
+          )}
 
           </div>
           </form>

@@ -1,8 +1,35 @@
 .time-table {
     height: 100%;
+    width: 100%;
     max-height: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.table-head {
+    font-size: 18px;
 }
 
 .table-body {
     max-height: 100%;
+}
+
+.empty-msg{
+    text-align: center;
+    margin: 30% auto;
+    width: 95%;
+}
+
+
+.table-wrapper{
+    height: 100%;
+    max-height: 100%;
+}
+
+.row-1 {
+    height: fit-content;
+}
+
+.row-2 {
+    height: fit-content;
 }

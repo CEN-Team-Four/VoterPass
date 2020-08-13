@@ -77,3 +77,11 @@ input {
 .button {
   margin: 5px;
 }
+
+.new-table-submit {
+  margin-top: 15px !important;
+}
+
+p {
+  color: grey;
+ }

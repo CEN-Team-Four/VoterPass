@@ -28,11 +28,15 @@ function Average(props){
     }
     localStorage.setItem('average', Math.round(average))
     return(
-        <div className="average-display">
-            Average Time per Voter
-            <br></br>
-            {minutes} : {seconds} 
+        <div className="average-display timer-page-text">
+            Average Time Between Voters
+
+            <div className="time-text">
+                {minutes} : {seconds} 
+            </div>
         </div>
+
+        
     );
 }
 export default Average;

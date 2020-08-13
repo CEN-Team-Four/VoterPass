@@ -1,25 +1,21 @@
 .average-display {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
 
     grid-area: average-display;
 
-    margin: 20px 20px 20px 20px;
+    margin: 20px 20px 0 20px;
     border: 2px solid #dee2e6;
     border-radius: 5px;
     text-align: center;
     align-content: center;
 }
 
+.timer-page-text {
+    font-size: 20px;
+}
 
-/*#average {
-    position: fixed;
-    border: 2px solid #dee2e6;
-    right: 2px;
-    width: 60%;
-    top: 62%;
-    left: 2px;
-    height: 28%;
-    text-align: center;
-}*/
+.time-text {
+    font-size: 30px;
+}

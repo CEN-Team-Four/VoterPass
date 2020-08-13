@@ -20,6 +20,10 @@ h2 {
 	margin-left: 1rem;
 }
 
+p, ol, li {
+	color: black !important;
+}
+
 /* ##### general ##### */
 * {
 	box-sizing: border-box;
@@ -44,6 +48,10 @@ input[type='text'] {
 	padding: 0 2rem;
 	width: calc(75% - 2rem);
 	height: 4rem;
+}
+
+ol, li {
+	color: grey;
 }
 
 .column {
