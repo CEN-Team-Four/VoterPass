@@ -2,6 +2,7 @@
     height: 100%;
     width: 96%;
     max-height: 100%;
+    max-width: 100%;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -18,7 +19,8 @@
 .time-table-container {
     grid-area: table;
     max-height: 100%;
-    overflow-y: auto;
+    max-width: 100%;
+    overflow-x: auto;
     scroll-behavior: smooth;
 }
 

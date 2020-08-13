@@ -24,7 +24,7 @@ function TimeTable(props) {
 
     return (
         <div className='table-wrapper'>
-        <Table striped className="time-table table-striped table-bordered" style={{marginBottom: 0}}>
+        <Table striped responsive className="time-table table-striped table-bordered" style={{marginBottom: 0}}>
             <tbody className="table-body">
                 <tr className="row-1">
                     <th className="Timeslots">Timeslots</th>
